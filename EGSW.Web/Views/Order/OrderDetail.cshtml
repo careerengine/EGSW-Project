@@ -1,0 +1,152 @@
+﻿@model EGSW.Web.Models.GutterCleanOrderModel
+@using EGSW.Data
+
+@{
+    ViewBag.Title = "OrderDetail";
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+}
+@section left
+{
+    @Html.Action("CustomerNavigation", "Account", new { selectedTabId = EGSW.Web.Models.Customers.CustomerNavigationEnum.Orders })
+}
+
+
+<h4>Order Detail</h4>
+
+<div class="form-fields">
+
+
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            Square Footage
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionSquareFootage)
+        </dd>
+
+        <dt>
+            Year Built
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionYearBuiltStr)
+        </dd>
+
+        <dt>
+            Style Of Gutter
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionStyleOfGutterStr)
+        </dd>
+
+        <dt>
+            Roof Material
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoofMaterial)
+        </dd>
+        <dt>
+            Delivery Time
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionDeliveryTimeStr)
+        </dd>
+
+        <dt>
+            Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zipcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zipcode)
+        </dd>
+
+        <dt>
+            Order Status
+        </dt>
+
+        <dd>
+            
+            @(((OrderStatus)Model.OrderStatusId).ToString())
+        </dd>
+
+        <dt>
+            Payment Status
+        </dt>
+
+        <dd>
+            @(((PaymentStatus)Model.PaymentStatusId).ToString())
+            
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderTotal)
+        </dt>
+
+        <dd>
+            @string.Format("{0:C}", Model.OrderTotal)
+            @*@Html.DisplayFor(model => model.OrderTotal)*@
+        </dd>
+
+
+
+        <dt>
+            Transaction Id
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CaptureTransactionId)
+        </dd>
+
+        <dt>
+            Created On
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOnUtc)
+        </dd>
+
+
+        @if (Model.CompletionDateUtc.HasValue)
+        { 
+        <dt>
+            Completion Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompletionDateUtc)
+        </dd>
+        }
+
+    </dl>
+</div>

@@ -1,0 +1,12 @@
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Debug\EGSW.Data.dll.config
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Debug\EGSW.Data.dll
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Debug\EGSW.Data.pdb
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Debug\EntityFramework.dll
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Debug\System.Web.Mvc.dll
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Debug\EntityFramework.xml
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Debug\System.Web.Mvc.xml
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Debug\EGSW.Data.dll
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Debug\EGSW.Data.pdb
+E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Debug\EGSW.Data.csprojResolveAssemblyReference.cache

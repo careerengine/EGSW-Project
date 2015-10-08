@@ -1,0 +1,85 @@
+﻿@model EGSW.Web.Models.ReferNeighborModel
+@using EGSW.Framework;
+
+@{
+    ViewBag.Title = "Refer-a-Neighbor | Gutter Cleaning";
+}
+
+<h2>Refer a Neighbor</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        @Html.AntiForgeryToken()
+
+
+        @if (Model.Result)
+        {
+            <div class="text-success">
+                Your message has been successfully sent to your friend.
+            </div>
+        }
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <hr />
+        <div>
+            <div class="col-md-12">
+                <h4>Do you know someone who needs their gutters cleaned?</h4>
+                <br />
+                <h4>Enter their name and email address and we’ll send them this email</h4>
+                </div>
+            <div class="col-md-12" style="border:3px solid #7c2791;">
+                <p>Dear [Friend’s Name],</p>
+                <p>I found a really great gutter cleaning service – Eguttercleaning.com.  Get a quote in 17 seconds by answering a few questions about your house.  </p>
+                <p>They pride themselves on being fast, thorough, neat and inexpensive and will not upsell unwarranted and unsolicited additional services.</p>
+                <p>Eguttercleaning does one thing and does it well.  They clean gutters and leaders.</p>
+                <p>Visit Eguttercleaning.com today to get your quote in 17 seconds and have your gutters cleaned within 5 business days.</p>
+                <p>Best,
+</p>
+                <p>
+[Your Name]</p>
+            </div>
+            </div>
+        <div class="col-md-12"><p></p></div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.FriendName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FriendName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FriendName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FriendEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FriendEmail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FriendEmail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.YourName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.YourName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.YourName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.Raw(Html.GenerateCaptcha())
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

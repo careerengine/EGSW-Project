@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EGSWDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" />
+    <Property Name="City" Type="nvarchar" MaxLength="200" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="500" />
+    <Property Name="ZipPostalCode" Type="nvarchar" MaxLength="15" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="CreatedOnUtc" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactUs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Message" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CreatedOnUtc" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerGuid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+    <Property Name="Address1" Type="nvarchar(max)" />
+    <Property Name="Address2" Type="nvarchar(max)" />
+    <Property Name="ZipPostalCode" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+    <Property Name="IsSystemAccount" Type="bit" Nullable="false" />
+    <Property Name="LastIpAddress" Type="nvarchar(max)" />
+    <Property Name="CreatedOnUtc" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDateUtc" Type="datetime" />
+    <Property Name="LastActivityDateUtc" Type="datetime" />
+    <Property Name="PasswordRecoveryToken" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Customer_CustomerRole_Mapping">
+    <Key>
+      <PropertyRef Name="Customer_Id" />
+      <PropertyRef Name="CustomerRole_Id" />
+    </Key>
+    <Property Name="Customer_Id" Type="int" Nullable="false" />
+    <Property Name="CustomerRole_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerAddresses">
+    <Key>
+      <PropertyRef Name="Customer_Id" />
+      <PropertyRef Name="Address_Id" />
+    </Key>
+    <Property Name="Customer_Id" Type="int" Nullable="false" />
+    <Property Name="Address_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="IsSystemRole" Type="bit" Nullable="false" />
+    <Property Name="SystemName" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="GutterCleanOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderGuid" Type="uniqueidentifier" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="QuestionSquareFootage" Type="int" Nullable="false" />
+    <Property Name="QuestionYearBuilt" Type="int" Nullable="false" />
+    <Property Name="QuestionStyleOfGutter" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="RoofMaterial" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Zipcode" Type="nvarchar" MaxLength="20" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrderStatusId" Type="int" Nullable="false" />
+    <Property Name="PaymentStatusId" Type="int" Nullable="false" />
+    <Property Name="OrderTotal" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="AgentId" Type="int" />
+    <Property Name="WorkerId" Type="int" />
+    <Property Name="AgentStatusId" Type="int" Nullable="false" />
+    <Property Name="WorkerStatusId" Type="int" Nullable="false" />
+    <Property Name="CreatedOnUtc" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+    <Property Name="CustomerIp" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompletionDateUtc" Type="datetime" />
+    <Property Name="CaptureTransactionId" Type="nvarchar(max)" />
+    <Property Name="CaptureTransactionResult" Type="nvarchar(max)" />
+    <Property Name="CapturePaymentGatwayResponse" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="OrderNote">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GutterCleanOrderId" Type="int" Nullable="false" />
+    <Property Name="Note" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DisplayToCustomer" Type="bit" Nullable="false" />
+    <Property Name="CreatedOnUtc" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EGSWDB.dbo.ZipCodes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ZipCodes">
+    <Key>
+      <PropertyRef Name="ZIPCode" />
+      <PropertyRef Name="ZIPType" />
+      <PropertyRef Name="CityName" />
+      <PropertyRef Name="CityType" />
+      <PropertyRef Name="CountyName" />
+      <PropertyRef Name="CountyFIPS" />
+      <PropertyRef Name="StateName" />
+      <PropertyRef Name="StateAbbr" />
+      <PropertyRef Name="StateFIPS" />
+      <PropertyRef Name="MSACode" />
+      <PropertyRef Name="AreaCode" />
+      <PropertyRef Name="TimeZone" />
+      <PropertyRef Name="UTC" />
+      <PropertyRef Name="DST" />
+      <PropertyRef Name="Latitude" />
+      <PropertyRef Name="Longitude" />
+    </Key>
+    <Property Name="ZIPCode" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ZIPType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CityType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CountyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountyFIPS" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StateAbbr" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="StateFIPS" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="MSACode" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="AreaCode" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="TimeZone" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="UTC" Type="int" Nullable="false" />
+    <Property Name="DST" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Latitude" Type="float" Nullable="false" />
+    <Property Name="Longitude" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="Customer_Addresses_Source">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CustomerAddresses" Type="Self.CustomerAddresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerAddresses">
+        <PropertyRef Name="Customer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Customer_Addresses_Target">
+    <End Role="Address" Type="Self.Address" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CustomerAddresses" Type="Self.CustomerAddresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerAddresses">
+        <PropertyRef Name="Address_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Customer_CustomerRoles_Source">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Customer_CustomerRole_Mapping" Type="Self.Customer_CustomerRole_Mapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer_CustomerRole_Mapping">
+        <PropertyRef Name="Customer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Customer_CustomerRoles_Target">
+    <End Role="CustomerRole" Type="Self.CustomerRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Customer_CustomerRole_Mapping" Type="Self.Customer_CustomerRole_Mapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer_CustomerRole_Mapping">
+        <PropertyRef Name="CustomerRole_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GutterCleanOrder_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="GutterCleanOrder" Type="Self.GutterCleanOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GutterCleanOrder">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderNote_OrderNote">
+    <End Role="GutterCleanOrder" Type="Self.GutterCleanOrder" Multiplicity="1" />
+    <End Role="OrderNote" Type="Self.OrderNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GutterCleanOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderNote">
+        <PropertyRef Name="GutterCleanOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EGSWDBModelStoreContainer">
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer_CustomerRole_Mapping" EntityType="Self.Customer_CustomerRole_Mapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerAddresses" EntityType="Self.CustomerAddresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerRole" EntityType="Self.CustomerRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GutterCleanOrder" EntityType="Self.GutterCleanOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderNote" EntityType="Self.OrderNote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZipCodes" EntityType="Self.ZipCodes" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ZipCodes].[ZIPCode] AS [ZIPCode], 
+    [ZipCodes].[ZIPType] AS [ZIPType], 
+    [ZipCodes].[CityName] AS [CityName], 
+    [ZipCodes].[CityType] AS [CityType], 
+    [ZipCodes].[CountyName] AS [CountyName], 
+    [ZipCodes].[CountyFIPS] AS [CountyFIPS], 
+    [ZipCodes].[StateName] AS [StateName], 
+    [ZipCodes].[StateAbbr] AS [StateAbbr], 
+    [ZipCodes].[StateFIPS] AS [StateFIPS], 
+    [ZipCodes].[MSACode] AS [MSACode], 
+    [ZipCodes].[AreaCode] AS [AreaCode], 
+    [ZipCodes].[TimeZone] AS [TimeZone], 
+    [ZipCodes].[UTC] AS [UTC], 
+    [ZipCodes].[DST] AS [DST], 
+    [ZipCodes].[Latitude] AS [Latitude], 
+    [ZipCodes].[Longitude] AS [Longitude]
+    FROM [dbo].[ZipCodes] AS [ZipCodes]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="Customer_Addresses_Source" Association="Self.Customer_Addresses_Source">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="Customer_Addresses_Target" Association="Self.Customer_Addresses_Target">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="Customer_CustomerRoles_Source" Association="Self.Customer_CustomerRoles_Source">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Customer_CustomerRole_Mapping" EntitySet="Customer_CustomerRole_Mapping" />
+    </AssociationSet>
+    <AssociationSet Name="Customer_CustomerRoles_Target" Association="Self.Customer_CustomerRoles_Target">
+      <End Role="CustomerRole" EntitySet="CustomerRole" />
+      <End Role="Customer_CustomerRole_Mapping" EntitySet="Customer_CustomerRole_Mapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GutterCleanOrder_Customer" Association="Self.FK_GutterCleanOrder_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="GutterCleanOrder" EntitySet="GutterCleanOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderNote_OrderNote" Association="Self.FK_OrderNote_OrderNote">
+      <End Role="GutterCleanOrder" EntitySet="GutterCleanOrder" />
+      <End Role="OrderNote" EntitySet="OrderNote" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,126 @@
+﻿@using EGSW.Data.Customers;
+@{
+    string username = string.Empty;
+    var workContext = DependencyResolver.Current.GetService<EGSW.Data.IWorkContext>();
+    username = workContext.CurrentCustomer.Email;
+
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Admin EGSW</title>
+    @Styles.Render("~/adminContent/css")
+        @Scripts.Render("~/adminbundles/modernizr")
+    <script src="~/Areas/Admin/Scripts/jquery-1.10.2.js"></script>
+    
+    <link href="~/Areas/Admin/Content/font-awesome.css" rel="stylesheet" />
+</head>
+<body>
+   
+
+
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("EGSW Admin", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                       
+
+                        @if (workContext.CurrentCustomer.IsAdmin())
+                        {
+                            <li>@Html.ActionLink("Dashboard", "AgentOrderList", "GutterOrder")</li>
+                            <li>@Html.ActionLink("Customers", "Index", "Customer")</li>
+
+                            <li>@Html.ActionLink("Agents", "AgentList", "Customer")</li>
+                            <li>@Html.ActionLink("Checklist", "GutterOrderStepList", "GutterOrder")</li>
+                            <li>@Html.ActionLink("Orders", "List", "GutterOrder")</li>
+                        }
+
+                        @*<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>*@
+                    </ul>
+                    @Html.Partial("_AdminLoginPartial")
+                    @*<ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="@Url.RouteUrl("LogOff")">Welcome Admin |</a> 
+                        </li>
+                        <li><a href="@Url.Action("AgentOrderList", "GutterOrder")">My Order</a></li>
+                        <li><a href="@Url.RouteUrl("LogOff")">Log off</a></li>
+                       
+                    </ul>*@
+                </div><!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+    </nav>
+    <div style="border:5px solid #eea236;"></div>
+    <div class="container body-content">
+        @RenderBody()
+       
+    </div>
+    
+    <div class="clearfix" style="margin:0 0 20px;"></div>
+    <div class="footer">
+       
+        <div class="container">
+
+            <div class="footer-lower">
+               
+                    <div class="footer-info">
+                        <span class="footer-disclaimer">Copyright &copy; @DateTime.Now.Year All rights reserved.</span>
+                    </div>
+                    <div class="footer-powered-by">
+                        @*Powered by <a href="http://circustechnologies.com/">Circus Technologies</a>*@
+
+                    </div>
+
+               
+            </div>
+
+</div>
+        </div>
+        
+
+    @*@Scripts.Render("~/adminbundles/jquery")*@
+    @Scripts.Render("~/adminbundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+    @section Scripts {
+        @Scripts.Render("~/adminbundles/jqueryval")
+    }
+
+
+
+
+</body>
+</html>

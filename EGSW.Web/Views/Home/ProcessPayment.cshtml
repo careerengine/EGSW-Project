@@ -1,0 +1,245 @@
+﻿@model EGSW.Web.Models.GutterCleanPaymentRequestModel
+
+@{
+    ViewBag.Title = "Process Payment";
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-6">
+        <h4>You are 60 seconds away from finalizing your order!</h4>
+        <div class="form-horizontal">
+            <hr />
+            <div class="dl-horizontal">
+
+                <div class="form-group">
+                    <label for="OrderTotal" class="col-md-4 control-label"> Square Footage</label>
+                    <div class="col-md-8">
+
+                        @Html.DisplayFor(model => model.QuestionSquareFootage)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="OrderTotal" class="col-md-4 control-label">Year Built</label>
+                    <div class="col-md-8">
+
+                        @Html.DisplayFor(model => model.QuestionYearBuiltStr)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="OrderTotal" class="col-md-4 control-label">Style Of Gutter</label>
+                    <div class="col-md-8">
+
+                        @Html.DisplayFor(model => model.QuestionStyleOfGutterStr)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="OrderTotal" class="col-md-4 control-label">Roof Material</label>
+                    <div class="col-md-8">
+
+                        @Html.DisplayFor(model => model.RoofMaterial)
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="OrderTotal" class="col-md-4 control-label">Delivery Time</label>
+                    <div class="col-md-8">
+
+                        @Html.DisplayFor(model => model.QuestionDeliveryTimeStr)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="AddressService" class="col-md-4 control-label">Address to where gutters will be cleaned</label>
+                    <div class="col-md-8">
+
+                        @Html.DisplayFor(model => model.AddressService)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="zipcodeService" class="col-md-4 control-label">Zip Code where gutters will be cleaned</label>
+                    <div class="col-md-8">
+
+                        @Html.DisplayFor(model => model.zipcodeService)
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+
+        <div class="form-horizontal">
+
+            @using (Html.BeginForm("ProcessPayment", "Home", FormMethod.Post, new { id = "GutterCleanRequestForm", @class = "form-horizontal", role = "form" }))
+            {
+                <h4>Payment Information</h4>
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                if (Model.Warnings.Count > 0)
+                {
+                    <div class="form-group text-danger">
+                        <ul>
+                            @foreach (var warning in Model.Warnings)
+                            {
+                                <li>@warning</li>
+                            }
+                        </ul>
+                    </div>
+                }
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.OrderTotal, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        <div style="font-size:16px;font-weight:bold;">$ @Model.OrderTotal</div>
+                        @Html.TextBoxFor(m => m.OrderTotal, new { @class = "form-control", @readonly = "readonly", style = "display:none;" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Address, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Zipcode, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Zipcode, new { @class = "form-control" })
+                        <span id="result" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CreditCardType, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(model => model.CreditCardType, Model.CreditCardTypes, new { @class = "form-control", style = "width:100%;" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.NameOnCard, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.NameOnCard, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CardNumber, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="CardExpiryMonth" class="col-md-4 control-label">Card Expire Date </label>
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(model => model.CardExpiryMonth, Model.ExpireMonths, new { @class = "form-control", style = "width:105px;float:left;margin-right:10px;" })  @Html.DropDownListFor(model => model.CardExpiryYear, Model.ExpireYears, new { @class = "form-control", style = "width:105px;" })
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CardSecurityCode, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.CardSecurityCode, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 control-label"></div>
+                    <div class="col-md-8">
+                        @Html.CheckBoxFor(m => m.AccetTermandCondition) I Agree to the Terms and Conditions
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-8">
+                        <input type="submit" id="pay-now" class="btn btn-primary" value="Process Payment and Finalize Order" disabled="disabled" />
+                    </div>
+                </div>
+
+                <div id="terms-of-service-warning-box" title="Terms and Conditions" style="display:none;">
+                    <p>
+                        A bit more of attention deserves the span6 class.
+                        Bootstrap defines horizontal fluid rows split in up to 12 regions.
+                        The spanX class indicates how large each should be.
+                        By using span6 on two DIV elements you indicate you want them to be placed side by side on the same logical row as two TD cells in a TABLE.
+                        All in all, I think this is the best way to explain the concept to most developers.
+                        (And this is the way I learned it myself.) Note also the use of the HTML5 month input field to pick up only month and year.
+                        The resulting form is in the figure below.
+                    </p>
+                </div>
+
+        <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-sm">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Terms and Conditions</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-justify">
+                                    eguttercleaning is a gutter cleaning service only.
+                                    We are a gutter cleaning network of hand picked, vetted service providers
+                                    who are commissioned to execute one service only - that is to clean gutters.
+                                    Your gutters and leaders will be cleaned only.   No gutter, leader, drainage, roofing or other repairs are
+                                    performed or authorized by eguttercleaning.  No additional services are provided by eguttercleaning.
+                                    No solicitation of additional related or non-related work is authorized, approved or encouraged by
+                                    eguttercleaning.   Our objective is to satisfy gutter and leader cleaning requests while eliminating
+                                    common customer concern of being upsold or targeted for additional unnecessary services.
+                                </p>
+                            </div>
+                            @*<div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>*@
+                        </div>
+
+                    </div>
+                </div>
+
+
+            }
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#AccetTermandCondition').click(function () {
+                    var termOfServiceOk = true;
+                    if (this.checked) {
+                        termOfServiceOk = true;
+                        $('#pay-now').removeAttr('disabled');
+                        //$("#terms-of-service-warning-box").dialog();
+                        $('#myModal').modal('show');
+
+
+                    } else {
+                        //$("#terms-of-service-warning-box").dialog();
+                        $('#pay-now').attr('disabled', 'disabled');
+                        termOfServiceOk = false;
+                    }
+                });
+
+
+                $('#Zipcode').blur(function () {
+
+                    var url = '@Url.Action("GetCityStateInfoBasedOnZipcode","Ajax")?' + Math.random();
+                    var zip = $('#Zipcode').val();
+
+                    $.get(url, { inputzipcode: zip }, function (data) {
+                        $("#result").html(data.CityName + ", " + data.StateName);
+                    });
+                })
+
+            });
+        </script>
+    </div>
+</div>
