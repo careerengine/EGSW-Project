@@ -38,6 +38,10 @@ namespace EGSW.Web.Controllers
             //get here from Database;
             var _seoUrlService = DependencyResolver.Current.GetService<EGSW.Services.SeoUrls.ISeoUrlService>();
             var Result = _seoUrlService.GetSeoUrlById(Id);
+
+            var randomList = _seoUrlService.GetAllSeoUrl().OrderBy(n => Guid.NewGuid()).Take(5);
+            ViewBag.SeoRandomList = randomList;
+
             return View(Result);
         }
 
