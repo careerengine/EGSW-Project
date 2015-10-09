@@ -6,25 +6,48 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h1>Gutter Cleaning Services in @Model.CityName @Model.StateAbbr </h1>
-        
-        
+        <h1>Gutter Cleaning Services in @Model.CityName @Model.StateAbbr @Model.ZIPCode.Value.ToString().PadLeft(5, '0')</h1>
+       
+        <div id="">
+            <h4>Get a gutter cleaning quote in 17 seconds!</h4>
 
-        <div id="location_sales_copy">
-            <h2>Family Owned and A+ Rated by the Better Business Bureau</h2>
+            <p class="text-justify">Our simple goal is to provide an easy solution to a dirty job. Offering a fast, inexpensive and quality approach to your gutter cleaning needs year round.</p>
 
-            <br>
-            Your home’s gutters are intended to protect your home from water damage. However, if the gutters become clogged with debris, the system won’t operate effectively. Ned Stevens Gutter Cleaning can help protect your home from damage with quality gutter cleaning in Brookfield CT. In our over 40 years in the industry, we have built a reputation for quality workmanship and attentive service.
-            <br>
-            <!--		<BR>
-        Call us for a single gutter cleaning or browse our website to learn more about our <a href="service-plans.aspx" title="Ned Stevens Service Plans"><font color="black">service plans</font></a>. There are two plans to meet your needs and we can arrange a plan that is tailored to your needs, if you require a different cleaning schedule. Our mechanics will clean the debris from your gutters and check the system to detect any problems that may need to be addressed.
-        <BR>
-                                                                            <BR>
-        If you need gutter repair or replacement, contact Ned Stevens Gutter Cleaning for expert service from skilled and extensively trained gutter mechanics. We have new gutters in two sizes and a wide selection of colors, so we can provide a system that is both aesthetically pleasing and efficient for removing rain water and moving it away from your home.
-        <BR>/-->
-            <br>
-            Our website contains information about our gutter cleaning, gutter installation, repair, gutter guards and other related services. We offer home maintenance services that include screening, underground drain snaking and more. Call our office at 1-800-542-0267. We are here seven days a week for more information or to schedule an appointment for service in Brookfield CT.
-            <br>
+            <p class="text-justify">
+                By eliminating logistical challenges, customer service inefficiencies and billing
+                inefficiencies, we can provide better gutter cleaning service at about a 60% reduction in cost.  Importantly, we DO NOT “upsell” additional services or perform unrequested, spontaneous services.  We do ONE thing -- that is clean gutters.
+            </p>
+
+            <p class="text-justify">
+                <a href="@Url.RouteUrl("HomePage")">E-gutter-cleaning.com</a> team members are local residents to your area - @(Model.CountyName).
+                They are your neighbors, vetted and selected to represent their home base and sworn to
+                uphold the <a href="@Url.RouteUrl("HomePage")">E-gutter-cleaning.com</a> seal of approval. Each team is charged with doing whatever
+                is necessary to provide top-notch, professional service in the best interest of the customer.
+            </p>
+            
+            <p class="text-justify">Currently, E-gutter-cleaning also provides services in these areas:</p>
+            @if (ViewBag.SeoRandomList != null)
+            {
+                <ul>
+                    @foreach(var item in ViewBag.SeoRandomList)
+                    {
+                        <li>@item.CityName - @item.ZIPCode.ToString().PadLeft(5,'0') </li>
+                    }
+                </ul>
+            }
+            
+
+            <p class="text-justify">
+                By focusing on residential home Gutter Cleaning, E-gutter-cleaning.com has learned the best and most efficient techniques to keep your gutters debris free.
+            </p>
+            <p class="text-justify">
+                Our growth is due in large part to word-of-mouth referrals from satisfied customers. <a href="@Url.RouteUrl("ReferANeighbor")">Refer a neighbor today!</a>
+            </p>
+            <p class="text-justify">
+                Our team takes your satisfaction as a badge of pride!
+            </p>
+            <p class="text-justify"> -- The E-gutter-cleaning.com Team</p>
+            
         </div>
 
     </div>
