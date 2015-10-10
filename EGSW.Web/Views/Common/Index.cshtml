@@ -28,10 +28,10 @@
             <p class="text-justify">Currently, E-gutter-cleaning also provides services in these areas:</p>
             @if (ViewBag.SeoRandomList != null)
             {
-                <ul>
+                <ul> 
                     @foreach(var item in ViewBag.SeoRandomList)
                     {
-                        <li>@item.CityName - @item.ZIPCode.ToString().PadLeft(5,'0') </li>
+                        <li><a href="@Url.RouteUrl("SeoFriendlyUrl")">@item.CityName - @item.ZIPCode.ToString().PadLeft(5, '0')</a>  </li>
                     }
                 </ul>
             }

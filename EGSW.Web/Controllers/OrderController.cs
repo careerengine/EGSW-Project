@@ -3,6 +3,7 @@ using EGSW.Data.Customers;
 using EGSW.Services;
 using EGSW.Services.Directory;
 using EGSW.Services.Orders;
+using EGSW.Web.ActionFilters;
 using EGSW.Web.Models;
 using EGSW.Web.Models.Orders;
 using System;
@@ -13,6 +14,7 @@ using System.Web.Mvc;
 
 namespace EGSW.Web.Controllers
 {
+    [RequreSecureConnectionFilter]
     public class OrderController : Controller
     {
         private readonly ICustomerService _customerService;

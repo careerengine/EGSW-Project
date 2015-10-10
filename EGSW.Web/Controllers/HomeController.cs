@@ -17,9 +17,11 @@ using EGSW.Web.Models.Orders;
 using EGSW.Services.Directory;
 using EGSW.Services.Authentication;
 using EGSW.Framework;
+using EGSW.Web.ActionFilters;
 
 namespace EGSW.Web.Controllers
 {
+    [RequreSecureConnectionFilter]
     public class HomeController : Controller
     {
         private readonly IDbContext _context;

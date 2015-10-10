@@ -14,6 +14,7 @@ using System.Configuration;
 
 namespace EGSW.Web.Controllers
 {
+    [RequreSecureConnectionFilter]
     public class CommonController : Controller
     {
 

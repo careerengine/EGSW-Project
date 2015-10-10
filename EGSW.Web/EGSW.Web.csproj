@@ -188,6 +188,7 @@
   <ItemGroup>
     <Compile Include="ActionFilters\ChangeFrequency.cs" />
     <Compile Include="ActionFilters\ISitemapItem.cs" />
+    <Compile Include="ActionFilters\RequreSecureConnectionFilter.cs" />
     <Compile Include="ActionFilters\SitemapItem.cs" />
     <Compile Include="ActionFilters\XmlSitemapResult.cs" />
     <Compile Include="App_Start\AdminBundleConfig.cs" />

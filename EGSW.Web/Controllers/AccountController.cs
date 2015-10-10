@@ -17,10 +17,12 @@ using EGSW.Web.Models.Customers;
 using EGSW.Services.Directory;
 using EGSW.Web.Models.Orders;
 using System.IO;
+using EGSW.Web.ActionFilters;
 
 namespace EGSW.Web.Controllers
 {
     //[Authorize]
+    [RequreSecureConnectionFilter]
     public class AccountController : Controller
     {
         private readonly IAuthenticationService _authenticationService;  

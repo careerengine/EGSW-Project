@@ -20,6 +20,7 @@ namespace EGSW.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AdminBundleConfig.RegisterBundles(BundleTable.Bundles);
+
         }
     }
 }

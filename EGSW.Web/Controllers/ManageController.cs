@@ -7,9 +7,11 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EGSW.Web.Models;
+using EGSW.Web.ActionFilters;
 
 namespace EGSW.Web.Controllers
 {
+    [RequreSecureConnectionFilter]
     [Authorize]
     public class ManageController : Controller
     {
