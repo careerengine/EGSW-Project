@@ -26,6 +26,8 @@
             </div>
         </div>
 
+@if(Model.Id<=0)
+{ 
         <div class="form-group">
             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-3" })
             <div class="col-md-9">
@@ -33,6 +35,7 @@
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
         </div>
+}
 
         <div class="form-group">
             @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-3" })

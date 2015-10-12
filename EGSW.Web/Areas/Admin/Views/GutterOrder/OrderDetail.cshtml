@@ -195,7 +195,11 @@
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-8">
 
+@if (Model.orderViewByAdmin)
+            {
+
                     <input type="submit" value="Save" class="btn btn-default" />
+}
 
                     @if (!Model.HideSetWorkedCompletedButton)
                     {

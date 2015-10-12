@@ -24,7 +24,7 @@ namespace EGSW.Web.Areas.Admin.Models.Customers
         [Required]
         public string Email { get; set; }
 
-        [Required]
+        //[Required]
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public string City { get; set; }
