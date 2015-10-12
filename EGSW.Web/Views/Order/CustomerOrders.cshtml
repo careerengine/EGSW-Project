@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "CustomerOrders";
     Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+    var _dateTimeHelper = DependencyResolver.Current.GetService<EGSW.Services.Directory.IDateTimeHelper>();
 }
 
 <h2>CustomerOrders</h2>

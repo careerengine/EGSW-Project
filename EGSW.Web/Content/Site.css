@@ -68,7 +68,7 @@ ol, ul {
 }*/
 
 .active {
-     background-color: #7c2791 !important; 
+     background-color: #428bca !important; 
 }
 
 .list a {
@@ -84,7 +84,7 @@ ol, ul {
 }
 
 .list a:hover {
-    background-color: #7c2791;   
+    background-color: #428bca;   
 }
 
 

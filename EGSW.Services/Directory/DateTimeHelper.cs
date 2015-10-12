@@ -220,8 +220,11 @@ namespace EGSW.Services.Directory
         /// <summary>
         /// Gets or sets a default store time zone identifier
         /// </summary>
-        public string DefaultStoreTimeZoneId { get{return "Eastern Standard Time";}
-            set { value = "Central Standard Time"; } }
+        public string DefaultStoreTimeZoneId
+        {
+            get { return "Eastern Standard Time"; }
+            set { value = "Eastern Standard Time"; }
+        }
         
     }
 }
