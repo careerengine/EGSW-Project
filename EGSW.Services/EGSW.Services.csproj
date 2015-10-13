@@ -102,6 +102,8 @@
     <Compile Include="QuestionAnswerEntityData.cs" />
     <Compile Include="SeoUrls\ISeoUrlService.cs" />
     <Compile Include="SeoUrls\SeoUrlService.cs" />
+    <Compile Include="ServiceRequests\IServiceRequestService.cs" />
+    <Compile Include="ServiceRequests\ServiceRequestService.cs" />
     <Compile Include="SiteSetting.cs" />
     <Compile Include="UserAgentHelper.cs" />
     <Compile Include="UserRegistrationType.cs" />

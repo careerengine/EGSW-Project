@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/_ColumnsOne.cshtml";
 }
 
-<script src="~/Scripts/public.login.js?v=1.3"></script>
+<script src="~/Scripts/public.login.js?v=1.5"></script>
 <script type="text/javascript">
     ServiceRequestMethod.init("request-method-message", '@Url.Action("SendNewServiewRequest", "Ajax")');
 </script>
@@ -147,41 +147,45 @@
 
         <div class="form-group">
 
-            <div class="col-md-12" style="height:200px;">
+            <div class="col-md-12" style="height:355px;">
                
                
             </div>
         </div>
         <div></div>
-        <h4 style="font-size:20px;">Currently providing gutter cleaning service in Bergen County, New Jersey</h4>
+        <h4 style="font-size:16px;color:#428bca">Currently providing gutter cleaning service in Bergen County, New Jersey</h4>
 
         <p>
 
-            If you would like to be notified when Eguttercleaning becomes available in your area:
+            If you would like to be notified when Eguttercleaning becomes available in your area please enter your:
         </p>
         <div class="form-group">
 
             <div class="col-md-12">
-                <label for="OrderTotal" class="control-label">
-                    Please enter your email address:*
-                </label>
-                @Html.TextBox("ServiceEmailAdddress", "", new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
+                <div class="col-md-5">
+                    <label for="OrderTotal" class="control-label">
+                        email address:*
+                    </label>
+                    @Html.TextBox("ServiceEmailAdddress", "", new { @class = "form-control" })
+                </div>
+                <div class="col-md-5">
+                    <label for="OrderTotal" class="control-label">
+                        zip code?*
+                    </label>
+                    @Html.TextBox("ServiceZipCode", "", new { @class = "form-control" })
+                </div>
+                <div class="col-md-2" style="padding-top:25px;">                    
+                    <input type="button" value="Submit" onclick="ServiceRequestMethod.SendRequest()" class="btn btn-primary" />
+                </div>
 
-            <div class="col-md-12">
-                <label for="OrderTotal" class="control-label">
-                    What is your zip code?*
-                </label>
-                @Html.TextBox("ServiceZipCode", "", new { @class = "form-control" })
-            </div>
-        </div>
+                </div>
+                
+            </div>        
 
         <div class="form-group">
             <div class="col-md-12">
                 <div id="login-method-buttons-container">
-                    <input type="button" value="Submit" onclick="ServiceRequestMethod.SendRequest()" class="btn btn-primary" />
+                   
 
                 </div>
                 <div class="col-md-12" style="padding-top:10px;">

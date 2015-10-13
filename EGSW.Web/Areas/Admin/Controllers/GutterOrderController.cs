@@ -92,7 +92,8 @@ namespace EGSW.Web.Areas.Admin.Controllers
             //model.CreatedOnUtc = order.CreatedOnUtc;
             model.CreatedOnUtc = _dateTimeHelper.ConvertToUserTime(order.CreatedOnUtc, DateTimeKind.Utc);
             if (order.CompletionDateUtc.HasValue)
-            model.CompletionDateUtc = order.CompletionDateUtc.Value;
+                model.CompletionDateUtc = _dateTimeHelper.ConvertToUserTime(order.CompletionDateUtc.Value, DateTimeKind.Utc); 
+           
 
             // This button only show 'Admin User'
             model.HideSetAgentButton = _workContext.CurrentCustomer.IsAgent();
@@ -330,7 +331,7 @@ namespace EGSW.Web.Areas.Admin.Controllers
                 return RedirectToAction("OrderDetail");
             }
 
-            if (model.AgentId > 0)
+            if (order.AgentId > 0)
             {
                 order.OrderStatusId = (int)OrderStatus.Complete;
                 order.CompletionDateUtc = DateTime.UtcNow;

@@ -143,10 +143,55 @@ var ServiceRequestMethod = {
         this.saveUrl = saveUrl;
     },
     
+    validate: function () {
+        var IsValid = true;
+        var elementId = $("#request-method-message");
+        elementId.html("");
+        var emailField = $("#ServiceEmailAdddress").val();
+        var zipcodeField = $("#ServiceZipCode").val();
+
+
+        if (emailField != "") {
+            var isValidEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailField);
+
+            if (isValidEmail == false) {
+                elementId.append(" Email is not valid.");
+                IsValid = false;
+            }
+        }
+        else {
+            IsValid = false;
+            elementId.append(" Email is required.");
+        }
+
+        
+
+        if (zipcodeField != "") {
+            var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipcodeField);
+
+            if (isValidZip == false) {
+                elementId.append(" Zipcode is not valid.");
+                IsValid = false;
+            }
+        }
+        else {
+            IsValid = false;
+            elementId.append(" Zipcode is required.");
+        }
+       
+
+        if (IsValid == false) {            
+            elementId.addClass('text-danger');
+            elementId.removeClass('text-success');
+            elementId.show();
+        }        
+        return IsValid;
+    },
+
     SendRequest: function () {
         
         
-        if (true) {
+        if (this.validate()) {
             Checkout.setLoadWaiting('request-method');
 
             $.ajax({
@@ -159,6 +204,7 @@ var ServiceRequestMethod = {
                 error: Checkout.ajaxFailure
             });
         }
+        
     },
 
     resetLoadWaiting: function () {
@@ -172,7 +218,7 @@ var ServiceRequestMethod = {
         if (response.Result) {            
             elementId.addClass('text-success');
             elementId.removeClass('text-danger');
-            elementId.html("Your enquiry has been successfully sent to the site owner.");
+            elementId.html("Your information has been recorded.  We will notify you when Eguttercleaning is available in your area.");
             
         }
         else {

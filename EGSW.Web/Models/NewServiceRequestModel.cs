@@ -9,9 +9,11 @@ namespace EGSW.Web.Models
     public class NewServiceRequestModel
     {
         [Required]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string ServiceEmailAdddress { get; set; }
 
         [Required]
+        [RegularExpression(@"^\d{5}?$", ErrorMessage = "Invalid Zipcode")]
         public string ServiceZipCode { get; set; }
 
         

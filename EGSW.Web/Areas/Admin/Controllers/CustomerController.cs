@@ -46,6 +46,7 @@ namespace EGSW.Web.Areas.Admin.Controllers
                     model.City = customer.City;
                     model.ZipPostalCode = customer.ZipPostalCode;
                     model.CreatedOnUtc = customer.CreatedOnUtc;
+                    model.Active = customer.Active;
                     model.SelectedCustomerRoleId = customer.CustomerRoles.Select(cr => cr.Id).SingleOrDefault();
                     CustomerRoleName = customer.CustomerRoles.Select(cr=>cr.Name).SingleOrDefault();
 

@@ -4,12 +4,27 @@
 {
    
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a href="@Url.RouteUrl("CustomerInfo")">@("Hello " + Model.CustomerEmailUsername + "!")</a>
-        </li>
-        <li>
-            <a href="@Url.RouteUrl("CustomerInfo")">My Account</a>
-        </li>
+       
+        @if (!Model.DisplayAdminLink)
+        {
+            <li>
+                <a href="@Url.RouteUrl("CustomerInfo")">@("Hello " + Model.CustomerEmailUsername + "!")</a>
+            </li>
+
+            <li>
+                <a href="@Url.RouteUrl("CustomerInfo")">My Account</a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="#">@("Hello " + Model.CustomerEmailUsername + "!")</a>
+            </li>
+            
+            
+        }
+        
+        
         <li><a href="@Url.RouteUrl("LogOff")">Log off</a></li>
         @if (Model.DisplayAdminLink)
         {

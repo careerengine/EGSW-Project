@@ -108,6 +108,7 @@
       <End Role="Survery" EntitySet="Surveries" />
     </AssociationSet>
     <EntitySet Name="SeoUrls" EntityType="EGSWDBModel.SeoUrl" />
+    <EntitySet Name="ServiceRequests" EntityType="EGSWDBModel.ServiceRequest" />
   </EntityContainer>
   <EntityType Name="GutterCleanOrder">
     <Key>
@@ -255,5 +256,14 @@
     <Property Name="StateAbbr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="IsActive" Type="Boolean" />
     <Property Name="SeoName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ServiceRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Zipcode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOnUtc" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
 </Schema>

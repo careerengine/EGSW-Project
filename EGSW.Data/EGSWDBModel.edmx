@@ -143,6 +143,15 @@
           <Property Name="IsActive" Type="bit" />
           <Property Name="SeoName" Type="nvarchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="ServiceRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="Zipcode" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreatedOnUtc" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Survery">
           <Key>
             <PropertyRef Name="Id" />
@@ -296,6 +305,7 @@ warning 6002: The table/view 'EGSWDB.dbo.ZipCodes' does not have a primary key d
           <EntitySet Name="GutterCleanOrder" EntityType="Self.GutterCleanOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderNote" EntityType="Self.OrderNote" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SeoUrl" EntityType="Self.SeoUrl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceRequest" EntityType="Self.ServiceRequest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Survery" EntityType="Self.Survery" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZipCodes" EntityType="Self.ZipCodes" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -458,6 +468,7 @@ warning 6002: The table/view 'EGSWDB.dbo.ZipCodes' does not have a primary key d
             <End Role="Survery" EntitySet="Surveries" />
           </AssociationSet>
           <EntitySet Name="SeoUrls" EntityType="EGSWDBModel.SeoUrl" />
+          <EntitySet Name="ServiceRequests" EntityType="EGSWDBModel.ServiceRequest" />
         </EntityContainer>
         <EntityType Name="GutterCleanOrder">
           <Key>
@@ -605,6 +616,15 @@ warning 6002: The table/view 'EGSWDB.dbo.ZipCodes' does not have a primary key d
           <Property Name="StateAbbr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="SeoName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ServiceRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Zipcode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOnUtc" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -789,6 +809,16 @@ warning 6002: The table/view 'EGSWDB.dbo.ZipCodes' does not have a primary key d
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="ZIPType" ColumnName="ZIPType" />
                 <ScalarProperty Name="ZIPCode" ColumnName="ZIPCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceRequests">
+            <EntityTypeMapping TypeName="EGSWDBModel.ServiceRequest">
+              <MappingFragment StoreEntitySet="ServiceRequest">
+                <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

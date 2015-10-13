@@ -86,7 +86,7 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%yourname%", YourName);            
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
 
-            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, FriendEmail, "", "", mailBody, "Eguttercleaning - Thank you for contacting us!");
+            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, FriendEmail, "", "", mailBody, "Refer A Neighbor - Eguttercleaning Service");
 
             return 1;
         }

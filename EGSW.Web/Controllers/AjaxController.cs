@@ -1,5 +1,7 @@
-﻿using EGSW.Services;
+﻿using EGSW.Data;
+using EGSW.Services;
 using EGSW.Services.Directory;
+using EGSW.Services.ServiceRequests;
 using EGSW.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -14,11 +16,14 @@ namespace EGSW.Web.Controllers
 
         private readonly IZipCodeService _zipCodeService;
         private readonly IWorkflowMessageService _workflowMessageService;
+        private readonly IServiceRequestService _serviceRequestService;
 
-        public AjaxController(IZipCodeService zipCodeService, IWorkflowMessageService workflowMessageService)
+        public AjaxController(IZipCodeService zipCodeService, IWorkflowMessageService workflowMessageService
+            , IServiceRequestService serviceRequestService)
         {
             this._zipCodeService = zipCodeService;
             this._workflowMessageService = workflowMessageService;
+            this._serviceRequestService = serviceRequestService;
 
         }
 
@@ -56,7 +61,14 @@ namespace EGSW.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                _workflowMessageService.SendNewServiceRequestSiteOwnerNotification(model.ServiceEmailAdddress, model.ServiceZipCode);
+                ServiceRequest entity = new ServiceRequest();
+                entity.CreatedOnUtc = DateTime.UtcNow;
+                entity.EmailAddress = model.ServiceEmailAdddress;
+                entity.Zipcode = model.ServiceZipCode;
+
+                _serviceRequestService.InsertServiceRequest(entity);
+
+                //_workflowMessageService.SendNewServiceRequestSiteOwnerNotification(model.ServiceEmailAdddress, model.ServiceZipCode);
                 model.Result = true;
 
             }

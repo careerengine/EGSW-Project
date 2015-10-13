@@ -138,6 +138,15 @@
     <Property Name="IsActive" Type="bit" />
     <Property Name="SeoName" Type="nvarchar" MaxLength="255" />
   </EntityType>
+  <EntityType Name="ServiceRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="Zipcode" Type="nvarchar" MaxLength="10" />
+    <Property Name="CreatedOnUtc" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Survery">
     <Key>
       <PropertyRef Name="Id" />
@@ -291,6 +300,7 @@ warning 6002: The table/view 'EGSWDB.dbo.ZipCodes' does not have a primary key d
     <EntitySet Name="GutterCleanOrder" EntityType="Self.GutterCleanOrder" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderNote" EntityType="Self.OrderNote" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SeoUrl" EntityType="Self.SeoUrl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceRequest" EntityType="Self.ServiceRequest" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Survery" EntityType="Self.Survery" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ZipCodes" EntityType="Self.ZipCodes" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

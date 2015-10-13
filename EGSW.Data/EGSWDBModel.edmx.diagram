@@ -19,6 +19,7 @@
         <EntityTypeShape EntityType="EGSWDBModel.Survery" Width="1.5" PointX="5.25" PointY="11.625" />
         <AssociationConnector Association="EGSWDBModel.FK_Survery_GutterCleanOrder" />
         <EntityTypeShape EntityType="EGSWDBModel.SeoUrl" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EGSWDBModel.ServiceRequest" Width="1.5" PointX="9.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

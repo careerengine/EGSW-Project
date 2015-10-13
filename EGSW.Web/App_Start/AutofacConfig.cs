@@ -8,6 +8,7 @@ using EGSW.Services.Directory;
 using EGSW.Services.Orders;
 using EGSW.Services.Payments;
 using EGSW.Services.SeoUrls;
+using EGSW.Services.ServiceRequests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,6 +88,7 @@ namespace EGSW.Web
             builder.RegisterType<PayPalDirectPaymentProcessor>().As<IPaymentMethod>().InstancePerLifetimeScope();
             builder.RegisterType<DateTimeHelper>().As<IDateTimeHelper>().InstancePerLifetimeScope();
             builder.RegisterType<SeoUrlService>().As<ISeoUrlService>().InstancePerLifetimeScope();
+            builder.RegisterType<ServiceRequestService>().As<IServiceRequestService>().InstancePerLifetimeScope();
 
             //builder.RegisterType<UserAgentHelper>().As<IUserAgentHelper>().InstancePerLifetimeScope(); 
 

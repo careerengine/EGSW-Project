@@ -107,6 +107,9 @@
     <Compile Include="SeoUrl.cs">
       <DependentUpon>EGSWDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ServiceRequest.cs">
+      <DependentUpon>EGSWDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Singleton.cs" />
     <Compile Include="Survery.cs">
       <DependentUpon>EGSWDBModel.tt</DependentUpon>

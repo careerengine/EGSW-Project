@@ -34,5 +34,6 @@ namespace EGSW.Data
         public virtual DbSet<ContactU> ContactUs { get; set; }
         public virtual DbSet<Survery> Surveries { get; set; }
         public virtual DbSet<SeoUrl> SeoUrls { get; set; }
+        public virtual DbSet<ServiceRequest> ServiceRequests { get; set; }
     }
 }
