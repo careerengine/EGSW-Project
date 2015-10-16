@@ -3,12 +3,24 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Gutter Cleaning</title>
+    <title>@ViewBag.Title</title>
+    @if (ViewBag.MetaDescription!=null)
+    { 
+        <meta name="Description" content="@ViewBag.MetaDescription" />
+    }
+
+
     @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
         <script src="~/Scripts/jquery-1.10.2.js"></script>
     
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
+
+    <script src="~/Scripts/public.zipcode.js?v=1.5"></script>
+    <script type="text/javascript">
+        ZipCodeMethod.init("request-method-message", '@Url.Action("ValidateZipcode", "Ajax")');
+    </script>
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

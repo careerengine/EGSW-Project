@@ -438,6 +438,7 @@
     <Content Include="Scripts\ladda-bootstrap\spin.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\public.ajaxcart.js" />
+    <Content Include="Scripts\public.zipcode.js" />
     <Content Include="Scripts\public.login.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />

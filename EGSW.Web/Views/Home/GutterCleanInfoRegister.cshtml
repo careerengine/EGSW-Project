@@ -57,8 +57,9 @@
                 <div class="form-group">
                     <label for="Address" class="col-md-3 control-label">Zip Code where gutters will be cleaned:</label>
                     <div class="col-md-9">
-                        @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control", onchange = "ZipCodeMethod.CheckZipCodeAvailability('ZipCode', 'zipcoderesult')" })
                         @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "text-danger" })
+                        <p id="zipcoderesult"></p>
                     </div>
                 </div> 
                 

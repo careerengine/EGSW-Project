@@ -216,6 +216,18 @@ namespace EGSW.Web.Controllers
                 ModelState.AddModelError("", "Wrong Captcha code.");
             }
 
+            var zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(model.ZipCode);
+            if (zipcodeResult != null)
+            {
+                
+            }
+            else
+            {
+                ModelState.AddModelError("", "Zipcode is not valid.");
+               
+            }
+
+
             if (ModelState.IsValid)
             {
 
@@ -253,16 +265,24 @@ namespace EGSW.Web.Controllers
 
                             case UserRegistrationType.Standard:
                                 {
-                                    ////send customer welcome message
-                                    //_workflowMessageService.SendCustomerWelcomeMessage(customer, _workContext.WorkingLanguage.Id);
 
-                                    //var redirectUrl = Url.RouteUrl("RegisterResult", new { resultId = (int)UserRegistrationType.Standard });
-                                    //if (!String.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-                                    //    redirectUrl = _webHelper.ModifyQueryString(redirectUrl, "returnurl=" + HttpUtility.UrlEncode(returnUrl), null);
-                                    //return Redirect(redirectUrl);
+                                    var address = new Address();                                    
+                                    address.Address1 = model.Address;
+                                    address.Address2 = "";
+                                    address.City = zipcodeResult.CityName;
+                                    address.Email = model.Email;
+                                    address.State = zipcodeResult.StateName;
+                                    address.PhoneNumber = "";
+                                    address.ZipPostalCode = model.ZipCode;
+                                    address.CreatedOnUtc = DateTime.UtcNow;
 
+                                    customer.Addresses.Add(address);
+                                    _customerService.UpdateCustomer(customer);
+
+                                    
+                                    
                                     //send email
-                                    _workflowMessageService.SendCustomerWelcomeMessage(customer);
+                                    //_workflowMessageService.SendCustomerWelcomeMessage(customer);
 
                                     GutterCleanRequestModel Requestmodel = _httpContext.Session["GutterCleanRequestModel"] as GutterCleanRequestModel;
                                     if (Requestmodel == null)
@@ -314,10 +334,28 @@ namespace EGSW.Web.Controllers
 
             GutterCleanPaymentRequestModel paymentRequestmodel = new GutterCleanPaymentRequestModel();
 
-            paymentRequestmodel.Address = customer.Address1;
-            paymentRequestmodel.Zipcode = customer.ZipPostalCode;
-
+            //paymentRequestmodel.Address = customer.Address1;
+            //paymentRequestmodel.Zipcode = customer.ZipPostalCode;
             paymentRequestmodel.OrderTotal = model.OrderTotal;
+
+            var AddressList = customer.Addresses.ToList();
+            string AddressText = string.Empty;
+            foreach (var address in AddressList)
+            {
+                 AddressText = string.Empty;
+                 AddressText = address.Address1 + ", " + address.City + "," + address.State + "," + address.ZipPostalCode;
+                 paymentRequestmodel.AvailableAddress.Add(new SelectListItem
+                     {
+                         Text = AddressText,
+                         Value = address.Id.ToString(),
+                     });
+            }
+
+            paymentRequestmodel.AvailableAddress.Add(new SelectListItem
+            {
+                Text = "New Address",
+                Value = "0",
+            });
 
 
             //CC types
@@ -399,7 +437,7 @@ namespace EGSW.Web.Controllers
                 paymentRequestmodel.QuestionDeliveryTimeStr = "4 hours";
 
             var zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(customer.ZipPostalCode);
-            paymentRequestmodel.Address = customer.Address1;
+            //paymentRequestmodel.Address = customer.Address1;
 
             paymentRequestmodel.AddressService = customer.Address1;
             if (zipcodeResult != null)
@@ -426,6 +464,17 @@ namespace EGSW.Web.Controllers
                 return RedirectToRoute("GutterCleanRequest");
             }
 
+            var zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(paymentRequestmodel.Zipcode);
+
+            if (zipcodeResult != null)
+            {
+            }
+            else
+            {
+                ModelState.AddModelError("Zipcode", "Zipcode is not valid.");
+            }
+
+
 
             if (ModelState.IsValid)
             {
@@ -437,13 +486,13 @@ namespace EGSW.Web.Controllers
                 paymentRequestmodel.OrderTotal = model.OrderTotal;
                 ProcessPaymentRequest processPaymentRequest = new ProcessPaymentRequest();
                 processPaymentRequest.OrderTotal = model.OrderTotal;
+
                 processPaymentRequest.CreditCardName = paymentRequestmodel.NameOnCard;
                 processPaymentRequest.CreditCardNumber = paymentRequestmodel.CardNumber;
                 processPaymentRequest.CreditCardCvv2 = paymentRequestmodel.CardSecurityCode;
-
                 processPaymentRequest.CreditCardExpireMonth = paymentRequestmodel.CardExpiryMonth;
                 processPaymentRequest.CreditCardExpireYear = paymentRequestmodel.CardExpiryYear;
-                processPaymentRequest.CreditCardCvv2 = paymentRequestmodel.CardSecurityCode;
+                
                 processPaymentRequest.CustomerId = _workContext.CurrentCustomer.Id;
                 if (processPaymentRequest.OrderGuid == Guid.Empty)
                     processPaymentRequest.OrderGuid = Guid.NewGuid();
@@ -475,14 +524,35 @@ namespace EGSW.Web.Controllers
 
                         entity.OrderTotal = model.OrderTotal;
                         entity.OrderGuid = processPaymentRequest.OrderGuid;
-                        entity.Address = paymentRequestmodel.Address;
-                        entity.Zipcode = paymentRequestmodel.Zipcode;
 
-                        if (zipcodeDetail != null)
+                        if (paymentRequestmodel.SelectedAddressId > 0)
                         {
-                            entity.City = zipcodeDetail.CityName; ;
-                            entity.State = zipcodeDetail.StateName;
+                            var selectedAddress = customer.Addresses.Where(a => a.Id == paymentRequestmodel.SelectedAddressId).SingleOrDefault();
+
+                            entity.Address = selectedAddress.Address1;
+                            entity.Zipcode = selectedAddress.ZipPostalCode;
+
+                            zipcodeDetail = _zipCodeService.GetZipCodeDetailByZipcode(entity.Zipcode);
+
+                            if (zipcodeDetail != null)
+                            {
+                                entity.City = zipcodeDetail.CityName; ;
+                                entity.State = zipcodeDetail.StateName;
+                            }
                         }
+                        else
+                        {
+                            entity.Address = paymentRequestmodel.Address;
+                            entity.Zipcode = paymentRequestmodel.Zipcode;
+
+                            if (zipcodeDetail != null)
+                            {
+                                entity.City = zipcodeDetail.CityName; ;
+                                entity.State = zipcodeDetail.StateName;
+                            }
+                        }
+
+                        
 
                         entity.AgentId = 0;
                         entity.WorkerId = 0;
@@ -514,6 +584,25 @@ namespace EGSW.Web.Controllers
 
 
             // Model is not valid then redisplay model
+
+            var AddressList = customer.Addresses.ToList();
+            string AddressText = string.Empty;
+            foreach (var address in AddressList)
+            {
+                AddressText = string.Empty;
+                AddressText = address.Address1 + ", " + address.City + "," + address.State + "," + address.ZipPostalCode;
+                paymentRequestmodel.AvailableAddress.Add(new SelectListItem
+                {
+                    Text = AddressText,
+                    Value = address.Id.ToString(),
+                });
+            }
+            paymentRequestmodel.AvailableAddress.Add(new SelectListItem
+            {
+                Text = "New Address",
+                Value = "0",
+            });
+
 
             //CC types
             paymentRequestmodel.CreditCardTypes.Add(new SelectListItem
@@ -592,13 +681,13 @@ namespace EGSW.Web.Controllers
             if (model.QuestionDeliveryTime == 3)
                 paymentRequestmodel.QuestionDeliveryTimeStr = "4 hours";
 
-            var zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(customer.ZipPostalCode);
+            var zipcodeResultCustomer = _zipCodeService.GetZipCodeDetailByZipcode(customer.ZipPostalCode);
             paymentRequestmodel.Address = customer.Address1;
 
             paymentRequestmodel.AddressService = customer.Address1;
             if (zipcodeResult != null)
             {
-                paymentRequestmodel.AddressService = customer.Address1 + ", " + zipcodeResult.CityName + ", " + zipcodeResult.StateName;
+                paymentRequestmodel.AddressService = customer.Address1 + ", " + zipcodeResultCustomer.CityName + ", " + zipcodeResultCustomer.StateName;
             }
             paymentRequestmodel.zipcodeService = customer.ZipPostalCode;
 

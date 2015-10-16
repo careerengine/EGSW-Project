@@ -56,6 +56,32 @@ namespace EGSW.Web.Controllers
         }
 
 
+        public JsonResult ValidateZipcode(string inputzipcode,string messageElementId)
+        {
+            bool Result = false;
+            string message = string.Empty;
+            string City = string.Empty;
+            string State = string.Empty;
+            string StateAbb = string.Empty;
+            var zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(inputzipcode);
+
+            if (zipcodeResult != null)
+            {
+                Result = true;
+                City = zipcodeResult.CityName;
+                State = zipcodeResult.StateName;
+                StateAbb = zipcodeResult.StateAbbr;
+                message = City + ", " + State;
+            }
+            else
+            {
+                message = "Zipcode is not valid.";
+            }
+
+            return Json(new { Result = Result, message = message, messageElementId = messageElementId, City = City, State = State, StateAbb = StateAbb }, JsonRequestBehavior.AllowGet);
+        }
+
+
         public JsonResult SendNewServiewRequest(NewServiceRequestModel model)
         {
 

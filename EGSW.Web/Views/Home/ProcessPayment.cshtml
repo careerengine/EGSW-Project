@@ -6,7 +6,8 @@
 }
 
 <div class="row">
-
+@using (Html.BeginForm("ProcessPayment", "Home", FormMethod.Post, new { id = "GutterCleanRequestForm", @class = "form-horizontal", role = "form" }))
+            {
     <div class="col-md-6">
         <h4>You are 60 seconds away from finalizing your order!</h4>
         <div class="form-horizontal">
@@ -54,36 +55,76 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="AddressService" class="col-md-4 control-label">Address to where gutters will be cleaned</label>
-                    <div class="col-md-8">
+<script>
+    function newAddress(isNew) {
 
-                        @Html.DisplayFor(model => model.AddressService)
+        //alert(isNew);
+        if (isNew=="0" || isNew=="") {            
+            $('.new-address-form').show();
+        } else {
+            $('.new-address-form').hide();
+        }
+    }
+</script>
+                <div class="form-group">
+
+                    <label for="QuestionSquareFootage" class="col-md-4 control-label">Select a address from your address book or enter a new address.</label>
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(m => m.SelectedAddressId, Model.AvailableAddress, "Select", new { @class = "form-control",
+                                                                                                                onchange = "newAddress(this.value);"
+                   })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="zipcodeService" class="col-md-4 control-label">Zip Code where gutters will be cleaned</label>
-                    <div class="col-md-8">
-
-                        @Html.DisplayFor(model => model.zipcodeService)
+                <div class="form-group new-address-form">
+                    <div class="form-group">
+                        <label for="AddressService" class="col-md-4 control-label">Address to where gutters will be cleaned</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="zipcodeService" class="col-md-4 control-label">Zip Code where gutters will be cleaned</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Zipcode, new { @class = "form-control",
+                                                                   //onchange = "ZipCodeMethod.CheckZipCodeAvailability('Zipcode', 'result')"
+                       })
+                            @Html.ValidationMessageFor(m=>m.Zipcode)
+                            <span id="result" />
+                        </div>
                     </div>
                 </div>
 
-            </div>
+                    @*<div class="form-group">
+                        <label for="AddressService" class="col-md-4 control-label">Address to where gutters will be cleaned</label>
+                        <div class="col-md-8">
+
+                            @Html.DisplayFor(model => model.AddressService)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="zipcodeService" class="col-md-4 control-label">Zip Code where gutters will be cleaned</label>
+                        <div class="col-md-8">
+
+                            @Html.DisplayFor(model => model.zipcodeService)
+                        </div>
+                    </div>*@
+
+                </div>
         </div>
     </div>
     <div class="col-md-6">
 
         <div class="form-horizontal">
 
-            @using (Html.BeginForm("ProcessPayment", "Home", FormMethod.Post, new { id = "GutterCleanRequestForm", @class = "form-horizontal", role = "form" }))
-            {
+            @*@using (Html.BeginForm("ProcessPayment", "Home", FormMethod.Post, new { id = "GutterCleanRequestForm", @class = "form-horizontal", role = "form" }))
+            {*@
                 <h4>Payment Information</h4>
                 @Html.AntiForgeryToken()
                 <hr />
                 @Html.ValidationSummary("", new { @class = "text-danger" })
-                if (Model.Warnings.Count > 0)
+                @if (Model.Warnings.Count > 0)
                 {
                     <div class="form-group text-danger">
                         <ul>
@@ -104,7 +145,7 @@
                 </div>
 
 
-                <div class="form-group">
+                @*<div class="form-group">
                     @Html.LabelFor(m => m.Address, new { @class = "col-md-4 control-label" })
                     <div class="col-md-8">
                         @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
@@ -116,7 +157,7 @@
                         @Html.TextBoxFor(m => m.Zipcode, new { @class = "form-control" })
                         <span id="result" />
                     </div>
-                </div>
+                </div>*@
 
 
                 <div class="form-group">
@@ -208,7 +249,7 @@
                 </div>
 
 
-            }
+            @*}*@
         </div>
         <script type="text/javascript">
             $(document).ready(function () {
@@ -231,15 +272,54 @@
 
                 $('#Zipcode').blur(function () {
 
+                    var IsValid = true;
                     var url = '@Url.Action("GetCityStateInfoBasedOnZipcode","Ajax")?' + Math.random();
                     var zip = $('#Zipcode').val();
+                    var elementId = $("#result");
+                    elementId.html("");
+                    // var zipcodeField = $("#" + this.zipCodeElementId).val();
 
-                    $.get(url, { inputzipcode: zip }, function (data) {
-                        $("#result").html(data.CityName + ", " + data.StateName);
-                    });
+                    if (zip != "") {
+                        var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
+
+                        if (isValidZip == false) {
+                            elementId.append(" Zipcode is not valid.");
+                            IsValid = false;
+                        }
+
+                    }
+                    else {
+                        IsValid = false;
+                        elementId.append(" Zipcode is required.");
+                    }
+
+                    if (IsValid == false) {
+                        elementId.addClass('text-danger');
+                        elementId.removeClass('text-success');
+                        elementId.show();
+                    }
+                    else {
+                        elementId.removeClass('text-danger');
+                        elementId.hide();
+
+                        $.get(url, { inputzipcode: zip }, function (data) {
+                            $("#result").html(data.CityName + ", " + data.StateName);
+                            elementId.show();
+                            elementId.removeClass('text-danger');
+                            elementId.addClass('text-success');
+                        });
+
+                    }
+
+
+                    
                 })
 
             });
         </script>
     </div>
+
+}
+
+
 </div>

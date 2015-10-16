@@ -70,10 +70,22 @@ namespace EGSW.Web.Controllers
             _items = new List<ISitemapItem>();
 
 
+            string siteUrl = ConfigurationManager.AppSettings["SiteUrl"];
+            siteUrl = siteUrl.Remove(siteUrl.LastIndexOf("/"));
+            _items.Add(new SitemapItem(siteUrl+Url.RouteUrl("HomePage")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("AboutUs")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("ContactUs")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("FAQ")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("ReferANeighbor")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("Register")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("Login")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("PasswordRecovery")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+
             var _seoUrlService = DependencyResolver.Current.GetService<EGSW.Services.SeoUrls.ISeoUrlService>();
 
             var seoUrlList = _seoUrlService.GetAllSeoUrl();
 
+            
             foreach (var entity in seoUrlList)
             {
 

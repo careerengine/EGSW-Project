@@ -17,6 +17,7 @@ namespace EGSW.Web.Models
             CreditCardTypes = new List<SelectListItem>();
             ExpireMonths = new List<SelectListItem>();
             ExpireYears = new List<SelectListItem>();
+            AvailableAddress = new List<SelectListItem>();
             Warnings = new List<string>();
         }
 
@@ -70,10 +71,12 @@ namespace EGSW.Web.Models
         [DisplayName("Card Security Code")]
         [Required]
         public string CardSecurityCode { get; set; }
+        public int SelectedAddressId { get; set; }
 
         public IList<SelectListItem> ExpireMonths { get; set; }
         public IList<SelectListItem> ExpireYears { get; set; }
         public IList<SelectListItem> CreditCardTypes { get; set; }
+        public IList<SelectListItem> AvailableAddress { get; set; }
 
         public IList<string> Warnings { get; set; }
 

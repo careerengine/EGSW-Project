@@ -173,6 +173,36 @@ var ServiceRequestMethod = {
                 elementId.append(" Zipcode is not valid.");
                 IsValid = false;
             }
+            //else {
+
+
+            //    $.ajax({
+            //        async: false,
+            //        cache: false,
+            //        url: "/Ajax/ValidateZipcode",
+            //        data: { inputzipcode: zipcodeField, messageElementId: "request-method-message" },
+            //        type: 'post',
+            //        success: function (response) {
+            //            if (response.Result == true) {
+
+
+            //            }
+            //            else {
+            //                var elementId = $("#" + response.messageElementId);
+            //                elementId.addClass('text-danger');
+            //                elementId.removeClass('text-success');
+            //                elementId.show();
+            //                elementId.html(response.message);
+            //                IsValid = false;
+            //            }
+
+            //            return false;
+            //        },
+            //        complete: this.resetLoadWaiting,
+            //    });
+
+            //    //alert(IsValid);
+            //}
         }
         else {
             IsValid = false;
