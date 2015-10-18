@@ -9,7 +9,13 @@
 }
 
 <script src="~/Scripts/public.login.js?v=1.5"></script>
-<script type="text/javascript">
+<script src="~/Scripts/jquery.cycle.all.js"></script>
+<script src="~/Scripts/jquery.cycle2.js"></script>
+
+
+
+
+<script>
     ServiceRequestMethod.init("request-method-message", '@Url.Action("SendNewServiewRequest", "Ajax")');
 </script>
 
@@ -144,12 +150,43 @@
 <div class="col-md-6">
     
     <div class="form-horizontal">
-        
-
+        <script language="javascript">
+    //$(document).ready(function () {
+    //    $('#slider1').cycle({
+    //        fx: 'fade', //'scrollLeft,scrollDown,scrollRight,scrollUp',blindX, blindY, blindZ, cover, curtainX, curtainY, fade, fadeZoom, growX, growY, none, scrollUp,scrollDown,scrollLeft,scrollRight,scrollHorz,scrollVert,shuffle,slideX,slideY,toss,turnUp,turnDown,turnLeft,turnRight,uncover,ipe ,zoom
+    //        speed: 'slow',
+    //        timeout: 2000,
+    //        slideResize: 0,
+    //        containerResize: 1,
+    //        width: '100%',
+    //        fit: 1
+    //    });
+    //});
+        </script>
+      
         <div class="form-group">
 
-            <div class="col-md-12" style="height:355px;">
-               
+            <div class="col-md-12" style="height:auto;">
+
+                <div class="cycle-slideshow">
+                    <img src="~/images/img1.jpg">
+                    @*<img src="~/images/img2.jpg">*@
+                    <img src="~/images/img3.jpg">
+                    <img src="~/images/img4.jpg">
+                    <img src="~/images/img5.jpg">
+                </div>
+
+                @*<div class="slider">
+                    <ul id="slider1">
+                        <li><img border="0" src="~/images/img1.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img2.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img3.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img4.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img5.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img6.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img7.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                    </ul>
+                </div>*@
                
             </div>
         </div>

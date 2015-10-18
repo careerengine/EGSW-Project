@@ -35,11 +35,11 @@ namespace EGSW.Web.Models
         public string ContactNumber { get; set; }
 
          [DisplayName("Billing Address")]
-         [Required]
+         //[Required]
         public string Address { get; set; }
 
          [DisplayName("Billing Zipcode")]
-         [Required]
+         //[Required]
         public string Zipcode { get; set; }
 
          [DisplayName("Order Total")]

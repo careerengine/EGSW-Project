@@ -32,10 +32,12 @@ namespace EGSW.Web.Controllers
         private readonly HttpContextBase _httpContext;
         private readonly IAddressService _addressService;
         private readonly IWorkflowMessageService _workflowMessageService;
+        private readonly IZipCodeService _zipCodeService;
 
         public AccountController(ICustomerService customerService, IWorkContext workContext, HttpContextBase httpContext, IAuthenticationService authenticationService, IWebHelper webHelper
             , IAddressService addressService
-            , IWorkflowMessageService workflowMessageService)
+            , IWorkflowMessageService workflowMessageService
+            , IZipCodeService zipCodeService)
         {
             this._customerService = customerService;
             this._workContext = workContext;
@@ -44,6 +46,7 @@ namespace EGSW.Web.Controllers
             this._httpContext = httpContext;
             this._addressService = addressService;
             this._workflowMessageService = workflowMessageService;
+            this._zipCodeService = zipCodeService;
         }
 
 
@@ -70,7 +73,7 @@ namespace EGSW.Web.Controllers
                 model.Address1 = address.Address1;
                 model.Address2 = address.Address2;
                 model.City = address.City;
-                model.Email = address.Email;
+                model.Email = _workContext.CurrentCustomer.Email; // address.Email;
                 model.PhoneNumber = address.PhoneNumber;
                 model.StateProvinceName = address.State;
                 model.ZipPostalCode = address.ZipPostalCode;
@@ -485,6 +488,7 @@ namespace EGSW.Web.Controllers
                 address: null
                 );
 
+            model.Email = _workContext.CurrentCustomer.Email;
             return View(model);
         }
 
@@ -499,13 +503,25 @@ namespace EGSW.Web.Controllers
 
             if (ModelState.IsValid)
             {
+
+                
+                var zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(model.ZipPostalCode);
+                
+
                 var address = new Address();
                
                 address.Address1 = model.Address1;
                 address.Address2 = model.Address2;
-                address.City = model.City;
+                
                 address.Email = model.Email;
-                address.State = model.StateProvinceName;
+
+                if (zipcodeResult != null)
+                {
+                    address.City = model.City;
+                    address.State = model.StateProvinceName;
+                }
+
+                
                 address.PhoneNumber = model.PhoneNumber;
                 address.ZipPostalCode = model.ZipPostalCode;
                 address.CreatedOnUtc = DateTime.UtcNow;
@@ -561,11 +577,19 @@ namespace EGSW.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                var zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(model.ZipPostalCode);
+
                 address.Address1 = model.Address1;
                 address.Address2 = model.Address2;
-                address.City = model.City;
-                address.Email = model.Email;
-                address.State = model.StateProvinceName;
+
+                if (zipcodeResult != null)
+                {
+                    address.City = model.City;
+                    address.State = model.StateProvinceName;
+                }
+
+                
+                address.Email = model.Email;                
                 address.PhoneNumber = model.PhoneNumber;
                 address.ZipPostalCode = model.ZipPostalCode;
                 _addressService.UpdateAddress(address);

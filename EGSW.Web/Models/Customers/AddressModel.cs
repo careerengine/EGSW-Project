@@ -23,19 +23,19 @@ namespace EGSW.Web.Models.Customers
         //public string LastName { get; set; }
 
         [DisplayName("Email")]
-        [Required]
+        //[Required]
         [EmailAddress]
         [AllowHtml]
         public string Email { get; set; }
 
         [DisplayName("State")]
-        [Required]
+        //[Required]
         [AllowHtml]
         public string StateProvinceName { get; set; }
 
 
         [DisplayName("City")]
-        [Required]
+        //[Required]
         [AllowHtml]
         public string City { get; set; }
 
@@ -47,7 +47,7 @@ namespace EGSW.Web.Models.Customers
 
 
         [DisplayName("Address2")]
-        [Required]
+        //[Required]
         [AllowHtml]
         public string Address2 { get; set; }
 
@@ -60,7 +60,7 @@ namespace EGSW.Web.Models.Customers
 
 
         [DisplayName("Phone Number")]
-        [Required]
+        //[Required]
         [AllowHtml]
         public string PhoneNumber { get; set; }
 

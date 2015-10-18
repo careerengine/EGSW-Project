@@ -9,4 +9,3 @@ E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\EntityFramew
 E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\System.Web.Mvc.xml
 E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.dll
 E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.pdb
-E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.csprojResolveAssemblyReference.cache

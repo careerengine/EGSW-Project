@@ -369,6 +369,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="EmailTemplates\Mail-Template - Copy.htm" />
     <Content Include="EmailTemplates\NewServiceRequestSiteOwnerNotification.htm" />
     <Content Include="EmailTemplates\SendReferANeighborNotification.htm" />
     <Content Include="EmailTemplates\CustomerPasswordRecoveryMessage - Copy.htm" />
@@ -384,6 +385,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\img1.jpg" />
+    <Content Include="images\img2.jpg" />
+    <Content Include="images\img3.jpg" />
+    <Content Include="images\img4.jpg" />
+    <Content Include="images\img5.jpg" />
+    <Content Include="images\img6.jpg" />
+    <Content Include="images\img7.jpg" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\bootstrap-typeahead.js" />
     <Content Include="Scripts\bootstrap-typeahead.min.js" />
@@ -420,6 +428,7 @@
     <Content Include="Areas\Admin\Views\Shared\AccessDenied.cshtml" />
     <Content Include="Areas\Admin\Views\GutterOrder\GutterOrderStepList.cshtml" />
     <Content Include="Areas\Admin\Views\Customer\AgentList.cshtml" />
+    <Content Include="images\Thumbs.db" />
     <None Include="Properties\PublishProfiles\EGSEPublish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
@@ -430,6 +439,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.cycle2.js" />
+    <Content Include="Scripts\jquery.cycle.all.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

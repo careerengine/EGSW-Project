@@ -35,11 +35,13 @@ namespace EGSW.Web.Controllers
         private readonly IWebHelper _webHelper;
         private readonly IWorkflowMessageService _workflowMessageService;
         private readonly IZipCodeService _zipCodeService;
+        private readonly IDbContext _dbContext;
 
         public HomeController(IDbContext context, IAuthenticationService authenticationService, IWorkContext workContext, ICustomerService customerService,
             IQuestionAnswerEntityData questionAnswerEntityDataService, HttpContextBase httpContext,
             IPaymentMethod paymentMethod, IOrderService orderService, IWebHelper webHelper,
-            IWorkflowMessageService workflowMessageService, IZipCodeService zipCodeService)
+            IWorkflowMessageService workflowMessageService, IZipCodeService zipCodeService,
+            IDbContext dbContext)
         {
             this._context = context;
             this._authenticationService = authenticationService;
@@ -52,6 +54,7 @@ namespace EGSW.Web.Controllers
             this._webHelper = webHelper;
             this._workflowMessageService = workflowMessageService;
             this._zipCodeService = zipCodeService;
+            this._dbContext = dbContext;
         }
 
         protected void PrepareGutterCleanOrderModel(GutterCleanRequestModel model)
@@ -137,6 +140,8 @@ namespace EGSW.Web.Controllers
         {
             //if ((_workContext.CurrentCustomer.IsGuest()))
             //    return new HttpUnauthorizedResult();
+
+            _dbContext.ExecuteSqlCommand("EXEC dbo.[DeleteGuests]");
 
             GutterCleanRequestModel model = new GutterCleanRequestModel();
             PrepareGutterCleanOrderModel(model);
@@ -464,14 +469,30 @@ namespace EGSW.Web.Controllers
                 return RedirectToRoute("GutterCleanRequest");
             }
 
-            var zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(paymentRequestmodel.Zipcode);
+            ZipCode zipcodeResult;
 
-            if (zipcodeResult != null)
+            if (paymentRequestmodel.SelectedAddressId > 0)
             {
+                var selectedAddress = customer.Addresses.Where(a => a.Id == paymentRequestmodel.SelectedAddressId).SingleOrDefault();
+                zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(selectedAddress.ZipPostalCode);
+                if (zipcodeResult != null)
+                {
+                }
+                else
+                {
+                    ModelState.AddModelError("Zipcode", "Selected Address Zipcode is not valid. Please select Another Addresss Or Enter New Address.");
+                }
             }
             else
             {
-                ModelState.AddModelError("Zipcode", "Zipcode is not valid.");
+                zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(model.Zipcode);
+                if (zipcodeResult != null)
+                {
+                }
+                else
+                {
+                    ModelState.AddModelError("Zipcode", "Zipcode is not valid.");
+                }
             }
 
 
@@ -559,6 +580,7 @@ namespace EGSW.Web.Controllers
                         entity.AgentStatusId = 0;
                         entity.WorkerStatusId = 0;
                         entity.CreatedOnUtc = DateTime.UtcNow;
+                        //entity.LastUpdatedDateUtc = DateTime.UtcNow;
                         _orderService.InsertOrder(entity);
 
                         _httpContext.Session["GutterCleanRequestModel"] = null;

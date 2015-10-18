@@ -40,3 +40,5 @@
 /// <reference path="../areas/admin/scripts/ladda-bootstrap/ladda.min.js" />
 /// <reference path="../areas/admin/scripts/ladda-bootstrap/spin.min.js" />
 /// <reference path="public.zipcode.js" />
+/// <reference path="jquery.cycle.all.js" />
+/// <reference path="jquery.cycle2.js" />

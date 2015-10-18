@@ -22,12 +22,14 @@ namespace EGSW.Web.Areas.Admin.Controllers
         private readonly IZipCodeService _zipCodeService;
         private readonly IWorkflowMessageService _workflowMessageService;
         private readonly IDateTimeHelper _dateTimeHelper;
+        private readonly IDbContext _dbContext;
 
 
         public GutterOrderController(IWorkContext workContext, ICustomerService customerService, IOrderService orderService,
             IQuestionAnswerEntityData questionAnswerEntityDataService, IZipCodeService zipCodeService,
             IWorkflowMessageService workflowMessageService,
-            IDateTimeHelper dateTimeHelper)
+            IDateTimeHelper dateTimeHelper,
+            IDbContext dbContext)
         {
             this._customerService = customerService;
             this._workContext = workContext;
@@ -37,6 +39,7 @@ namespace EGSW.Web.Areas.Admin.Controllers
 
             this._workflowMessageService = workflowMessageService;
             this._dateTimeHelper = dateTimeHelper;
+            this._dbContext = dbContext;
 
 
         }
@@ -193,14 +196,17 @@ namespace EGSW.Web.Areas.Admin.Controllers
             ViewBag.CustomerEmailData = CustomerEmail;
             ViewBag.OrderStatusIdData = OrderStatusId;
 
+
             OrderStatus? orderStatus = OrderStatusId > 0 ? (OrderStatus?)(OrderStatusId) : null;
 
             int pageSize = 50;
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
 
+            string sortOrder = "Id";
+            //ViewBag.IdSortParm = sortOrder == "Id" ? "Id_desc" : "Id";
             var products = _orderService.SearchOrders(os:orderStatus, customerEmail:CustomerEmail, pageIndex: pageIndex,
-            pageSize: pageSize);
+            pageSize: pageSize, sortOrder: "Id_desc");
 
             return View(products);
         }
