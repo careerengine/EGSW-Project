@@ -485,7 +485,7 @@ namespace EGSW.Web.Controllers
             }
             else
             {
-                zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(model.Zipcode);
+                zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(paymentRequestmodel.Zipcode);
                 if (zipcodeResult != null)
                 {
                 }

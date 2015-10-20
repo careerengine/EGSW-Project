@@ -86,11 +86,11 @@
                     <div class="form-group">
                         <label for="zipcodeService" class="col-md-4 control-label">Zip Code where gutters will be cleaned</label>
                         <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.Zipcode, new { @class = "form-control",
+                            @Html.TextBoxFor(m => m.Zipcode, new { @class = "form-control"
                                                                    //onchange = "ZipCodeMethod.CheckZipCodeAvailability('Zipcode', 'result')"
                        })
                             @Html.ValidationMessageFor(m=>m.Zipcode)
-                            <span id="result" />
+                            <span id="result"></span>
                         </div>
                     </div>
                 </div>

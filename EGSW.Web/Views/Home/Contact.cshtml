@@ -15,13 +15,7 @@
         @Html.AntiForgeryToken()
 
 
-        @if (Model.Result)
-        {
-            <div class="text-success">
-                Your enquiry has been successfully sent.
-            </div>
-        }
-        <hr />
+        
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -73,7 +67,19 @@
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Submit" class="btn btn-primary" />
             </div>
-        </div>
+
+            @if (Model.Result)
+            {
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="text-success">
+                        Your inquiry has been successfully sent.
+                    </div>
+                </div>
+            }
+                   
+               
+
+                </div>
     </div>
 }
 
