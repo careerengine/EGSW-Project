@@ -51,10 +51,10 @@ namespace EGSW.Web.Controllers
             var _seoUrlService = DependencyResolver.Current.GetService<EGSW.Services.SeoUrls.ISeoUrlService>();
 
             var seoUrlList = _seoUrlService.GetAllSeoUrl();
-
+            seoUrlList = seoUrlList.Where(i => i.Id > 66).ToList();
             foreach (SeoUrl entity in seoUrlList)
             {
-                entity.SeoName = entity.CityName.Replace(" ", "-") + "-" + entity.CountyName + "-" + entity.StateAbbr.Replace(" ", "-");
+                entity.SeoName = entity.CityName.Replace(" ", "-") + "-" + entity.CountyName.Replace("-county", "") + "-" + entity.StateAbbr.Replace(" ", "-");
                 entity.SeoName = entity.SeoName.ToLower();
                 _seoUrlService.UpdateSeoUrl(entity);
 
