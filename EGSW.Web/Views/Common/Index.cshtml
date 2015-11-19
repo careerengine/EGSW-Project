@@ -32,7 +32,9 @@
                 <ul> 
                     @foreach(var item in ViewBag.SeoRandomList)
                     {
-                        <li><a href="@Url.RouteUrl("SeoFriendlyUrl")">@item.CityName - @item.ZIPCode.ToString().PadLeft(5, '0')</a>  </li>
+                        String link = "/" + item.SeoName; 
+                        <li><a href='@link'> @item.CityName - @item.ZIPCode.ToString().PadLeft(5, '0')</a>  </li>
+                        @*<li><a href="@Url.RouteUrl("SeoFriendlyUrl")">@item.CityName - @item.ZIPCode.ToString().PadLeft(5, '0')</a>  </li>*@
                     }
                 </ul>
             }
