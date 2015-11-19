@@ -42,6 +42,13 @@ namespace EGSW.Services.SeoUrls
             return query.ToList();
         }
 
+        public IList<SeoUrl> GetCountySeoUrl(string Countyname)
+        {
+            var query = _seoUrlRepository.Table;
+            //var result = query.Where(o => o.CountyName == Countyname).ToList();
+            var result1 = query.Where(o => o.CountyName == Countyname).ToList();
+            return result1;
+        }
 
         /// <summary>
         /// Updates the customer
