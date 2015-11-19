@@ -30,6 +30,9 @@ namespace EGSW.Services.Orders
 
         GutterCleanOrder GetOrderById(int orderId);
 
+        List<GutterCleanOrder> GetOrderByAgentId(int agentId);
+
+
         GutterCleanOrder GetOrderByGuid(Guid orderGuid);
 
 
