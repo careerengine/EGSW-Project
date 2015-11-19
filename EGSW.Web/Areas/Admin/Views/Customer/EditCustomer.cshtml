@@ -72,6 +72,9 @@
                         <b>@(Model.Question4 == "1" ? "Yes" : "No")</b>
                     </div>
                 </div>
+                
+                <br />
+                <a href="@Url.Action("ListAllOrdersOfAgent", "GutterOrder", new { id = Model.Id })"><strong>click here</strong></a> <strong> see all the orders of this Agent:</strong> 
             </div>
         }
     </div>
