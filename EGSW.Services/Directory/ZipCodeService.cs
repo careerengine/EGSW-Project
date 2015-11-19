@@ -26,7 +26,7 @@ namespace EGSW.Services.Directory
             var query = from c in _zipCodeRepository.Table
                         where  c.CityType == "D" && c.ZIPCode1 == zipcode                       
                         select c;
-            var zipcodeResult = query.SingleOrDefault();
+            var zipcodeResult = query.FirstOrDefault();
             return zipcodeResult;
         }
     }
