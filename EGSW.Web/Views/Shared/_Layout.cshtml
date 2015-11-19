@@ -20,7 +20,7 @@
     <script type="text/javascript">
         ZipCodeMethod.init("request-method-message", '@Url.Action("ValidateZipcode", "Ajax")');
     </script>
-
+      
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -120,21 +120,9 @@
                 <div class="container">
 
                     <div class="footer-lower">
-                        <div class="col-md-12">
-                            <div class="col-md-4">
-                                <div @*class="footer-info"*@>
-                                    <span class="footer-disclaimer">Copyright &copy; @DateTime.Now.Year All rights reserved.</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                            </div>
-                            <div class="col-md-4">
-                                <div class="footer-powered-by pull-right">
-                                    @*Powered by <a href="http://circustechnologies.com/">Circus Technologies</a>*@
 
-                                </div>
-                            </div>
-                        </div>
+                        <span class="footer-disclaimer" >Copyright &copy; @DateTime.Now.Year All rights reserved. | <a href="@Url.RouteUrl("TermsAndCondition")">Term & Conditions</a></span>
+                                     
 
                     </div>
 
