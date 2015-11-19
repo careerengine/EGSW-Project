@@ -12,6 +12,10 @@ namespace EGSW.Services.SeoUrls
     {
         IList<SeoUrl> GetAllSeoUrl();
 
+        IList<SeoUrl> GetCountySeoUrl(string Countyname );
+
+
+
         SeoUrl GetSeoUrlBySeoName(string seoName);
 
         SeoUrl GetSeoUrlById(int id);
