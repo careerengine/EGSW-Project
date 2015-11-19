@@ -162,6 +162,15 @@ namespace EGSW.Web.Areas.Admin.Controllers
             return View();
         }
 
+        // GET: Agent Order List
+        public ActionResult ListAllOrdersOfAgent(int Id)
+        {
+            var orderList = _orderService.GetOrderByAgentId(Id);
+
+            ViewBag.orderList = orderList;
+            return View();
+        }
+
 
         // GET: Order
         
@@ -375,7 +384,7 @@ namespace EGSW.Web.Areas.Admin.Controllers
 
             if (model.AgentId > 0)
             {
-               
+              
                 order.IsPayAgentWorker = true;
                 order.LastUpdatedDateUtc = DateTime.UtcNow;
                 _orderService.UpdateOrder(order);
@@ -387,6 +396,9 @@ namespace EGSW.Web.Areas.Admin.Controllers
 
             return RedirectToAction("OrderDetail", new { orderId = model.Id });
         }
+
+
+       
 
 
     }
