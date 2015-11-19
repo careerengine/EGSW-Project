@@ -39,8 +39,9 @@ namespace EGSW.Web.Controllers
             //get here from Database;
             var _seoUrlService = DependencyResolver.Current.GetService<EGSW.Services.SeoUrls.ISeoUrlService>();
             var Result = _seoUrlService.GetSeoUrlById(Id);
-
-            var randomList = _seoUrlService.GetAllSeoUrl().OrderBy(n => Guid.NewGuid()).Take(5);
+            
+            var randomList = _seoUrlService.GetCountySeoUrl(Result.CountyName).OrderBy(n => Guid.NewGuid()).Take(5);
+            //var randomList = _seoUrlService.GetAllSeoUrl().OrderBy(n => Guid.NewGuid()).Take(5);
             ViewBag.SeoRandomList = randomList;
 
             return View(Result);
@@ -140,6 +141,20 @@ namespace EGSW.Web.Controllers
             return PartialView(model);
         }
 
+        public ActionResult CityNames()
+        {
+            var val = Request.QueryString["name"];
+            //get here from Database;
+            var city = val;
+            var _seoUrlService = DependencyResolver.Current.GetService<EGSW.Services.SeoUrls.ISeoUrlService>();
+           // var Result = _seoUrlService.GetCountySeoUrl(city);
+
+            var randomList = _seoUrlService.GetCountySeoUrl(city).OrderBy(n => n.CityName);
+            ViewBag.SeoRandomList = randomList;
+            ViewBag.countyName = city;
+            return View();
+            //return View();
+        }
         
         public ActionResult ReferANeighbor()
         {
