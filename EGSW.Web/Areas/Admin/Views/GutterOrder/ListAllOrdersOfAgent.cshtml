@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "List All Orders";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+<div>
+    
+    <h3> Order List</h3>
+    <div class="form-fields table-responsive">
+    <table class="table">
+        <tr>
+            <th>                Order #             </th>
+            <th>                Customer ID         </th>
+            <th>                Customer Address    </th>
+            <th>                Zip Code            </th>
+            <th>                City                </th> 
+            <th>                State               </th>     
+        </tr>
+            
+        @if (ViewBag.orderList != null)
+            {
+              foreach(var item in ViewBag.orderList)
+                {
+            <tr>
+                <td>@item.Id              </td>
+                <td>@item.CustomerId      </td>
+                <td>@item.Address         </td>
+                <td>@item.Zipcode         </td>
+                <td>@item.City            </td>
+                <td>@item.State           </td>
+            </tr>
+              }
+           }
+    </table>
+</div>
+    </div>
+}
