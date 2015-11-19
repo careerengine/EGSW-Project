@@ -19,6 +19,13 @@
     ServiceRequestMethod.init("request-method-message", '@Url.Action("SendNewServiewRequest", "Ajax")');
 </script>
 
+<style>
+a:link    {color:#428bca; background-color:transparent; text-decoration:underline}
+/*a:visited {color:pink; background-color:transparent; text-decoration:none} */
+a:hover   {color:red; background-color:transparent; text-decoration:underline}
+a:active  {color:yellow; background-color:transparent; text-decoration:underline}
+</style>
+
 <div class="col-md-6">
     <h1 style="font-size:20px;"> Congratulations! You are 17 seconds away from receiving a Gutter Cleaning Quote for your home!</h1>
     <div class="form-horizontal">
@@ -191,7 +198,7 @@
             </div>
         </div>
         <div></div>
-        <h4 style="font-size:16px;color:#428bca">Currently providing gutter cleaning service in Bergen County, New Jersey</h4>
+        <h4 style="font-size:16px;color:#428bca">Currently providing gutter cleaning service in <a href="@Url.Content("/common/citynames?name=Bergen")">Bergen County, New Jersey</a>  | <a href="@Url.Content("/common/citynames?name=Rockland-county")">Rockland County, New York</a> | <a href="@Url.Content("/common/citynames?name=Orange-county")">Orange County, New York</a> .</h4>
 
         <p>
 
