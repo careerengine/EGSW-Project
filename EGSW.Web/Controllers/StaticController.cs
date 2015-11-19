@@ -24,6 +24,11 @@ namespace EGSW.Web.Controllers
             return View();
         }
 
+        public ActionResult termsAndCondition()
+        {
+            return View();
+        }
+
 
         // GET: Static
         public ActionResult Faq()
