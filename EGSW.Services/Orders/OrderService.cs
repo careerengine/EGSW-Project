@@ -144,6 +144,21 @@ namespace EGSW.Services.Orders
             return _gutterCleanOrderRepository.GetById(orderId);
         }
 
+        public List<GutterCleanOrder> GetOrderByAgentId(int agentId)
+        {
+            if (agentId == 0)
+                return null;
+
+            var query = _gutterCleanOrderRepository.Table;
+
+            var result = query.Where(o => o.AgentId == agentId).ToList();
+
+
+            return result;
+        }
+
+        
+        
         public GutterCleanOrder GetOrderByGuid(Guid orderGuid)
         {
             var query = _gutterCleanOrderRepository.Table;
