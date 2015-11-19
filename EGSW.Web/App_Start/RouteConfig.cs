@@ -153,6 +153,16 @@ namespace EGSW.Web
                             "about-us/",
                             new { controller = "Static", action = "AboutUs" });
 
+
+            //Comming Soon
+            routes.MapRoute("TermsAndCondition",
+                            "Term-and-Condition/",
+                            new { controller = "Static", action = "termsAndCondition" });
+            //Comming Soon
+            routes.MapRoute("CityNames",
+                           "citynames/",
+                           new { controller = "Common", action = "CityNames" });
+
             //Comming Soon
             routes.MapRoute("FAQ",
                             "faq/",
