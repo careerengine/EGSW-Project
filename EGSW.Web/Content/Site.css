@@ -161,6 +161,7 @@ ol, ul {
     overflow: hidden;
     padding: 25px 0;
     width: 95%;
+     text-align:center;
 }
 .footer-info {
     float: right;
@@ -172,6 +173,13 @@ ol, ul {
     margin: 0;
 }
 
+span.footer-disclaimer {
+ 
+  width:100%;
+  margin: 0 auto;
+}
+
+}
 
 
 /* by sachin */
