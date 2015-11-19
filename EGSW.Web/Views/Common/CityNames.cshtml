@@ -1,0 +1,85 @@
+﻿
+@model EGSW.Data.SeoUrl
+@{
+    ViewBag.Title = ViewBag.countyName + "- E-Gutter-Cleaning | Inexpensive Low-Cost Fast Residential House Gutter Cleaning Service";
+    ViewBag.MetaDescription = "Show each city in selected county";
+    //Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+}
+
+<style>
+table {
+    width:100%;
+}
+
+td {
+
+     padding: 5px;
+     color: white;
+}
+</style>
+
+    <div>
+          
+    
+            @if (ViewBag.SeoRandomList != null)
+            {
+                foreach(var item1 in ViewBag.SeoRandomList)
+                {
+                    String countyName = item1.CountyName;
+
+                    int index = countyName.IndexOf('-');
+                    if (index != -1)
+                    { countyName = countyName.Substring(0, index); }
+
+                    countyName = countyName + " County, " + item1.StateAbbr;
+                <h3> @countyName - Gutter Cleaning Services provided in these cities and towns:</h3>
+                    break;
+                }
+       
+                int i = 1;
+                String col1 = ""; String col1data = "";
+                String col2 = ""; String col2data = "";
+                String col3 = ""; String col3data = "";
+                String link="";
+                <table>
+
+                    @foreach(var item in ViewBag.SeoRandomList)
+                    {
+                                                
+                         link = "/" + item.SeoName; //+ "-" + county + "-" + item.StateAbbr;
+
+                        if (i == 1)
+                        {
+                            col1 = ""; col1data = "";
+                            col1 = col1 + link; 
+                            col1data = col1data + item.CityName + "-" + item.ZIPCode;
+                        }
+                        else if (i == 2)
+                        {
+                            col2 = ""; col2data = "";
+                            col2 = col2 + link; 
+                            col2data = col2data + item.CityName + "-" + item.ZIPCode; 
+                        }
+                        else if (i == 3)
+                        {
+                          col3 = ""; col3data = "";
+                          col3 = col3 + link;
+                          col3data = col3data + item.CityName + "-" + item.ZIPCode;
+                        }
+                        
+                        if(i==3)
+                        {
+                            <tr>
+                             <td><a href='@col1'> @col1data.PadLeft(5, '0')</a>  </td>
+                             <td><a href='@col2'> @col2data.PadLeft(5, '0')</a>  </td>
+                             <td><a href='@col3'> @col3data.PadLeft(5, '0')</a>  </td>
+                            </tr>
+                            i = 0; 
+                        }
+                        i++;
+                    }
+                </table>
+            }
+
+    </div>
+
