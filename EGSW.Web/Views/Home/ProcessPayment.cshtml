@@ -59,18 +59,22 @@
     function newAddress(isNew) {
 
         //alert(isNew);
-        if (isNew=="0" || isNew=="") {            
+        if (isNew=="-1" || isNew=="") {            
             $('.new-address-form').show();
         } else {
             $('.new-address-form').hide();
         }
+
+
     }
 </script>
+
+
                 <div class="form-group">
 
                     <label for="QuestionSquareFootage" class="col-md-4 control-label">Select a address from your address book or enter a new address.</label>
-                    <div class="col-md-8">
-                        @Html.DropDownListFor(m => m.SelectedAddressId, Model.AvailableAddress, "Select", new { @class = "form-control",
+                    <div class="col-md-8" onload="showAddress()">
+                        @Html.DropDownListFor(m => m.SelectedAddressId, Model.AvailableAddress,  new { @class = "form-control", 
                                                                                                                 onchange = "newAddress(this.value);"
                    })
                     </div>
@@ -139,8 +143,15 @@
                 <div class="form-group">
                     @Html.LabelFor(m => m.OrderTotal, new { @class = "col-md-4 control-label" })
                     <div class="col-md-8">
-                        <div style="font-size:16px;font-weight:bold;">$ @Model.OrderTotal</div>
-                        @Html.TextBoxFor(m => m.OrderTotal, new { @class = "form-control", @readonly = "readonly", style = "display:none;" })
+                        <div style="font-size:16px;font-weight:bold;">$ @Model.OrderTotal
+                        @Html.TextBoxFor(m => m.OrderTotal, new { @class = "form-control", @readonly = "readonly", style = "display:none;" })  
+                         
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <img src="~/images/visaImage.png"> <img src="~/images/mastercardImage.png"> <img src="~/images/discoverImage.png"> <img src="~/images/amexImage.png">
+
+                        </div>
+                      
+
                     </div>
                 </div>
 
@@ -281,6 +292,18 @@
                         termOfServiceOk = false;
                     }
                 });
+
+
+               
+               
+                    var isNew = $('#SelectedAddressId').val; 
+                     
+                    if (isNew == "-1" || isNew == "") {
+                        $('.new-address-form').show();
+                    } else {
+                        $('.new-address-form').hide();
+                    }
+                
 
 
                 $('#Zipcode').blur(function () {
