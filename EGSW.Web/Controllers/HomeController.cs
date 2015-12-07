@@ -200,6 +200,38 @@ namespace EGSW.Web.Controllers
             return View(model);
         }
 
+        public bool addAddress(GutterCleanOrder entity)
+        {
+             var customer = _workContext.CurrentCustomer;
+
+           // var zipcodeResult = _zipCodeService.GetZipCodeDetailByZipcode(entity.Zipcode);
+
+
+            var address = new Address();
+
+            address.Address1 = entity.Address;
+            //address.Address2 = entity.Address2;
+
+            //address.Email = model.Email;
+/*
+            if (zipcodeResult != null)
+            {
+                address.City = model.City;
+                address.State = model.StateProvinceName;
+            }
+
+
+            address.PhoneNumber = model.PhoneNumber; */
+            address.ZipPostalCode = entity.Zipcode;
+            address.CreatedOnUtc = entity.CreatedOnUtc;//DateTime.UtcNow;
+
+            customer.Addresses.Add(address);
+            _customerService.UpdateCustomer(customer);
+
+            return true;
+
+        }
+
         //
         // POST: /Account/GutterCleanInfoRegister
         [HttpPost]
@@ -343,12 +375,43 @@ namespace EGSW.Web.Controllers
             //paymentRequestmodel.Zipcode = customer.ZipPostalCode;
             paymentRequestmodel.OrderTotal = model.OrderTotal;
 
+//            select top (1) *  from GutterCleanOrder where CustomerId='998' 
+//order by CreatedOnUtc desc
+
+            var AddressToShow = customer.GutterCleanOrders.OrderByDescending(n => n.CreatedOnUtc).First();
+            //take(1)
+
+           // var AddressToShow = customer.GutterCleanOrders.ToList();
+
+            String AddressShow = string.Empty;
+
+            //foreach (var address in AddressToShow)
+            {
+                AddressShow = string.Empty;
+                AddressShow = AddressToShow.Address + ", " + AddressToShow.City + "," + AddressToShow.State + "," + AddressToShow.Zipcode;
+                paymentRequestmodel.AvailableAddress.Add(new SelectListItem
+                {
+                    Text = AddressShow,
+                    Value = AddressToShow.Id.ToString(),
+                });
+            }
+
             var AddressList = customer.Addresses.ToList();
+
+            string first_add = string.Empty; ;
+
             string AddressText = string.Empty;
             foreach (var address in AddressList)
             {
                  AddressText = string.Empty;
+                
                  AddressText = address.Address1 + ", " + address.City + "," + address.State + "," + address.ZipPostalCode;
+
+                 if (address.Address1.Equals(AddressToShow.Address) && (address.ZipPostalCode == AddressToShow.Zipcode))
+                 {
+                     paymentRequestmodel.AvailableAddress[0].Value = address.Id.ToString();
+                     first_add = "true"; continue; 
+                 }
                  paymentRequestmodel.AvailableAddress.Add(new SelectListItem
                      {
                          Text = AddressText,
@@ -356,10 +419,15 @@ namespace EGSW.Web.Controllers
                      });
             }
 
+            if (first_add == "" || first_add != "true")
+            {
+                paymentRequestmodel.AvailableAddress.Remove(paymentRequestmodel.AvailableAddress[0]);
+            }
+
             paymentRequestmodel.AvailableAddress.Add(new SelectListItem
             {
                 Text = "New Address",
-                Value = "0",
+                Value = "-1",
             });
 
 
@@ -471,6 +539,8 @@ namespace EGSW.Web.Controllers
 
             ZipCode zipcodeResult;
 
+           // int addAddress_flag = 0;
+
             if (paymentRequestmodel.SelectedAddressId > 0)
             {
                 var selectedAddress = customer.Addresses.Where(a => a.Id == paymentRequestmodel.SelectedAddressId).SingleOrDefault();
@@ -482,6 +552,7 @@ namespace EGSW.Web.Controllers
                 {
                     ModelState.AddModelError("Zipcode", "Selected Address Zipcode is not valid. Please select Another Addresss Or Enter New Address.");
                 }
+                
             }
             else
             {
@@ -582,6 +653,12 @@ namespace EGSW.Web.Controllers
                         entity.CreatedOnUtc = DateTime.UtcNow;
                         //entity.LastUpdatedDateUtc = DateTime.UtcNow;
                         _orderService.InsertOrder(entity);
+
+                        // add new address if user enter new address which is not in its address list
+                        if (paymentRequestmodel.SelectedAddressId <= 0)
+                        {
+                            addAddress(entity);
+                        }
 
                         _httpContext.Session["GutterCleanRequestModel"] = null;
 
