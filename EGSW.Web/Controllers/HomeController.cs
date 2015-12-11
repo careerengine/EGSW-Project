@@ -377,28 +377,42 @@ namespace EGSW.Web.Controllers
 
 //            select top (1) *  from GutterCleanOrder where CustomerId='998' 
 //order by CreatedOnUtc desc
+            var AddressToShow= new GutterCleanOrder();
+            string first_add = string.Empty; 
 
-            var AddressToShow = customer.GutterCleanOrders.OrderByDescending(n => n.CreatedOnUtc).First();
-            //take(1)
-
-           // var AddressToShow = customer.GutterCleanOrders.ToList();
-
-            String AddressShow = string.Empty;
-
-            //foreach (var address in AddressToShow)
+            if (customer.GutterCleanOrders.Count > 0)
             {
-                AddressShow = string.Empty;
-                AddressShow = AddressToShow.Address + ", " + AddressToShow.City + "," + AddressToShow.State + "," + AddressToShow.Zipcode;
-                paymentRequestmodel.AvailableAddress.Add(new SelectListItem
+
+                AddressToShow = customer.GutterCleanOrders.OrderByDescending(n => n.CreatedOnUtc).First();
+                //take(1)
+
+                // var AddressToShow = customer.GutterCleanOrders.ToList();
+
+                String AddressShow = string.Empty;
+
+                //foreach (var address in AddressToShow)
                 {
-                    Text = AddressShow,
-                    Value = AddressToShow.Id.ToString(),
-                });
+                    AddressShow = string.Empty;
+                    AddressShow = AddressToShow.Address + ", " + AddressToShow.City + "," + AddressToShow.State + "," + AddressToShow.Zipcode;
+                    paymentRequestmodel.AvailableAddress.Add(new SelectListItem
+                    {
+                        Text = AddressShow,
+                        Value = AddressToShow.Id.ToString(),
+                    });
+                }
+
+                first_add = "true";
+
             }
+            else
+            {
+                first_add = "false";
+            }
+
 
             var AddressList = customer.Addresses.ToList();
 
-            string first_add = string.Empty; ;
+           
 
             string AddressText = string.Empty;
             foreach (var address in AddressList)
@@ -407,10 +421,10 @@ namespace EGSW.Web.Controllers
                 
                  AddressText = address.Address1 + ", " + address.City + "," + address.State + "," + address.ZipPostalCode;
 
-                 if (address.Address1.Equals(AddressToShow.Address) && (address.ZipPostalCode == AddressToShow.Zipcode))
+                 if (address.Address1.Equals(AddressToShow.Address) && (address.ZipPostalCode == AddressToShow.Zipcode) &&  first_add.Equals("true"))
                  {
                      paymentRequestmodel.AvailableAddress[0].Value = address.Id.ToString();
-                     first_add = "true"; continue; 
+                     first_add = "change"; continue; 
                  }
                  paymentRequestmodel.AvailableAddress.Add(new SelectListItem
                      {
@@ -419,7 +433,7 @@ namespace EGSW.Web.Controllers
                      });
             }
 
-            if (first_add == "" || first_add != "true")
+            if (first_add != "change" && first_add.Equals("true"))
             {
                 paymentRequestmodel.AvailableAddress.Remove(paymentRequestmodel.AvailableAddress[0]);
             }
