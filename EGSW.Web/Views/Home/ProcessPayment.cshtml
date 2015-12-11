@@ -292,11 +292,8 @@
                         termOfServiceOk = false;
                     }
                 });
-
-
-               
-               
-                    var isNew = $('#SelectedAddressId').val; 
+       
+               var isNew =  document.getElementById("SelectedAddressId").value;
                      
                     if (isNew == "-1" || isNew == "") {
                         $('.new-address-form').show();
