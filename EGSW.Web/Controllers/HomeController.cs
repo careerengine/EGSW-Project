@@ -713,7 +713,7 @@ namespace EGSW.Web.Controllers
             paymentRequestmodel.AvailableAddress.Add(new SelectListItem
             {
                 Text = "New Address",
-                Value = "0",
+                Value = "-1",
             });
 
 
@@ -794,16 +794,18 @@ namespace EGSW.Web.Controllers
             if (model.QuestionDeliveryTime == 3)
                 paymentRequestmodel.QuestionDeliveryTimeStr = "4 hours";
 
-            var zipcodeResultCustomer = _zipCodeService.GetZipCodeDetailByZipcode(customer.ZipPostalCode);
-            paymentRequestmodel.Address = customer.Address1;
+            //var zipcodeResultCustomer = _zipCodeService.GetZipCodeDetailByZipcode(customer.ZipPostalCode);
+            //paymentRequestmodel.Address = customer.Address1;
 
-            paymentRequestmodel.AddressService = customer.Address1;
-            if (zipcodeResult != null)
-            {
-                paymentRequestmodel.AddressService = customer.Address1 + ", " + zipcodeResultCustomer.CityName + ", " + zipcodeResultCustomer.StateName;
-            }
-            paymentRequestmodel.zipcodeService = customer.ZipPostalCode;
+            //paymentRequestmodel.AddressService = customer.Address1;
+            //if (zipcodeResult != null)
+            //{
+            //    paymentRequestmodel.AddressService = customer.Address1 + ", " + zipcodeResultCustomer.CityName + ", " + zipcodeResultCustomer.StateName;
+            //}
+            //paymentRequestmodel.zipcodeService = customer.ZipPostalCode;
 
+
+            paymentRequestmodel.AccetTermandCondition = false;
 
             return View(paymentRequestmodel);
         }
