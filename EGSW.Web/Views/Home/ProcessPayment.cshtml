@@ -277,9 +277,49 @@
         </div>
         <script type="text/javascript">
             $(document).ready(function () {
+
+               
+
+                var isNew = document.getElementById("SelectedAddressId").value; //alert(isNew);
+
+                if (isNew == "-1" || isNew == "") {
+                    $('.new-address-form').show();
+                } else {
+                    $('.new-address-form').hide();
+                }
+
+                           
+
                 $('#AccetTermandCondition').click(function () {
                     var termOfServiceOk = true;
-                    if (this.checked) {
+                    var New = document.getElementById("SelectedAddressId").value; //alert(New);
+                    var address = document.getElementById("Address").value; //alert(address);
+                    var zipcode = document.getElementById("Zipcode").value; //alert(zipcode);
+                    var nameoncard = document.getElementById("NameOnCard").value;
+                    var cardnumber = document.getElementById("CardNumber").value;
+                    var cardsecuritycode = document.getElementById("CardSecurityCode").value;
+                    var month = document.getElementById("CardExpiryMonth").value; 
+                    var year = document.getElementById("CardExpiryYear").value;
+
+                    var flag = 0;              
+
+                     if (New == "-1" && (address == "" || address == null))
+                    { alert("Please enter Address"); flag = 1; }
+                    else if (New == "-1" && (zipcode == "" || zipcode == null))
+                    { alert("Please enter Zipcode"); flag = 1; }
+                    else if (nameoncard == "" || nameoncard == null)
+                    { alert("Please enter Name on Card"); flag = 1; }
+                    else if (cardnumber == "" || cardnumber == null)
+                    { alert("Please enter Card Number"); flag = 1; }
+                    else if (month =="" || month == null)
+                    { alert("Please select Month"); flag = 1; }
+                    else if (year == "" || year == null)
+                    { alert("Please select Year"); flag = 1; }
+                    else if (cardsecuritycode == "" || cardsecuritycode == null)
+                    { alert("Please enter Card Security Code"); flag = 1; }
+
+                    if (this.checked && flag == 0) {
+                       // alert(flag);
                         termOfServiceOk = true;
                         $('#pay-now').removeAttr('disabled');
                         //$("#terms-of-service-warning-box").dialog();
@@ -293,14 +333,7 @@
                     }
                 });
        
-               var isNew =  document.getElementById("SelectedAddressId").value;
-                     
-                    if (isNew == "-1" || isNew == "") {
-                        $('.new-address-form').show();
-                    } else {
-                        $('.new-address-form').hide();
-                    }
-                
+              
 
 
                 $('#Zipcode').blur(function () {
