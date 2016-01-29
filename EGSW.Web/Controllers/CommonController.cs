@@ -11,6 +11,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Configuration;
+using System.IO;
 
 namespace EGSW.Web.Controllers
 {
@@ -73,15 +74,33 @@ namespace EGSW.Web.Controllers
 
             string siteUrl = ConfigurationManager.AppSettings["SiteUrl"];
             siteUrl = siteUrl.Remove(siteUrl.LastIndexOf("/"));
-            _items.Add(new SitemapItem(siteUrl+Url.RouteUrl("HomePage")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
-            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("AboutUs")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
-            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("ContactUs")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
-            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("FAQ")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
-            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("ReferANeighbor")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
-            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("Register")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
-            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("Login")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
-            _items.Add(new SitemapItem(siteUrl + Url.RouteUrl("PasswordRecovery")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            //_items.Add(new SitemapItem(siteUrl+Url.RouteUrl("HomePage")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            //_items.Add(new SitemapItem(siteUrl + Url.RouteUrl("AboutUs")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            //_items.Add(new SitemapItem(siteUrl + Url.RouteUrl("ContactUs")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            //_items.Add(new SitemapItem(siteUrl + Url.RouteUrl("FAQ")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            //_items.Add(new SitemapItem(siteUrl + Url.RouteUrl("ReferANeighbor")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            //_items.Add(new SitemapItem(siteUrl + Url.RouteUrl("Register")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            //_items.Add(new SitemapItem(siteUrl + Url.RouteUrl("Login")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+            //_items.Add(new SitemapItem(siteUrl + Url.RouteUrl("PasswordRecovery")) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
 
+            string line;
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Content\\URL.txt");
+
+            try
+            {
+                System.IO.StreamReader file = new System.IO.StreamReader(path);
+                //_items.Add(new SitemapItem(siteUrl) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+                while ((line = file.ReadLine()) != null)
+                {
+                    _items.Add(new SitemapItem(siteUrl + Url.RouteUrl(line)) { ChangeFrequency = ChangeFrequency.Monthly, LastModified = DateTime.Now, Priority = 1 });
+                }
+
+                file.Close();
+            }
+            catch (Exception e) { }
+
+            
+            
             var _seoUrlService = DependencyResolver.Current.GetService<EGSW.Services.SeoUrls.ISeoUrlService>();
 
             var seoUrlList = _seoUrlService.GetAllSeoUrl();

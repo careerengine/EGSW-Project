@@ -1,0 +1,6 @@
+
+***********************************************************************
+Date: 01/2/2016
+Description: CommonContrler.cs updated. Update the function seoSitemapXml. Now it reads static url from URl.txt
+
+Make a URL.txt in Content directory
