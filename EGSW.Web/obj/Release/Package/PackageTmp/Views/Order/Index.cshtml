@@ -1,0 +1,76 @@
+﻿@model PagedList.IPagedList<GutterCleanOrder>
+@using EGSW.Data
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+    var _dateTimeHelper = DependencyResolver.Current.GetService<EGSW.Services.Directory.IDateTimeHelper>();
+}
+
+@section left
+{
+    @Html.Action("CustomerNavigation", "Account", new { selectedTabId = EGSW.Web.Models.Customers.CustomerNavigationEnum.Orders })
+}
+
+<h4>My account - Orders</h4>
+<div class="form-fields table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                Order #
+            </th>
+
+
+            <th>
+                Order Status
+            </th>
+            <th>
+                Payment Status
+            </th>
+            <th>
+                Order Total
+            </th>
+           
+            <th>
+                Created On
+            </th>
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @(((OrderStatus)item.OrderStatusId).ToString())
+                </td>
+                <td>
+
+                    @(((PaymentStatus)item.PaymentStatusId).ToString())
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.OrderTotal)*@ @string.Format("{0:C}",item.OrderTotal)
+                </td>
+               
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.CreatedOnUtc)*@
+                    @_dateTimeHelper.ConvertToUserTime(item.CreatedOnUtc, DateTimeKind.Utc)
+                </td>
+
+                <td>
+                    <a href="@Url.RouteUrl("OrderDetails", new { orderId = item.Id })">View</a>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <div id='Paging' style="text-align:center">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+</div>

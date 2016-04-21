@@ -10,3 +10,15 @@ E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\System.Web.M
 E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.dll
 E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.pdb
 E:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.csprojResolveAssemblyReference.cache
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\EGSW.Data.dll.config
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\EGSW.Data.dll
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\EGSW.Data.pdb
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\EntityFramework.dll
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\EntityFramework.SqlServer.dll
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\System.Web.Mvc.dll
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\EntityFramework.xml
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\EntityFramework.SqlServer.xml
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\System.Web.Mvc.xml
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.csprojResolveAssemblyReference.cache
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.dll
+F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.pdb

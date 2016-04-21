@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\MyProject\CSGProject\EGSW\doc\Publish\01-Oct-2015</_PublishTargetUrl>
+    <_PublishTargetUrl>F:\MyProject\CSGProject\EGSW\doc\Publish\05-Apr-2016</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/seo.xml">
@@ -265,13 +265,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/16/2015 09:33:35</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Customer/EditCustomer.cshtml">
-      <publishTime>09/26/2015 11:23:14</publishTime>
+      <publishTime>11/27/2015 23:10:51</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Customer/List.cshtml">
       <publishTime>09/20/2015 10:56:15</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Customer/_CreateOrUpdateCustomer.cshtml">
-      <publishTime>09/16/2015 09:44:49</publishTime>
+      <publishTime>10/12/2015 11:05:35</publishTime>
     </File>
     <File Include="Areas/Admin/Views/GutterOrder/AgentOrderList.cshtml">
       <publishTime>09/20/2015 10:48:00</publishTime>
@@ -283,7 +283,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/20/2015 10:50:11</publishTime>
     </File>
     <File Include="Areas/Admin/Views/GutterOrder/OrderDetail.cshtml">
-      <publishTime>09/26/2015 11:19:48</publishTime>
+      <publishTime>10/14/2015 01:11:01</publishTime>
     </File>
     <File Include="Areas/Admin/Views/GutterOrder/OrderDetail_i.cshtml">
       <publishTime>08/10/2015 22:51:00</publishTime>
@@ -319,16 +319,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/07/2015 09:32:46</publishTime>
     </File>
     <File Include="bin/EGSW.Data.dll">
-      <publishTime>10/07/2015 00:27:13</publishTime>
+      <publishTime>04/05/2016 23:39:21</publishTime>
     </File>
     <File Include="bin/EGSW.Framework.dll">
-      <publishTime>10/07/2015 00:27:14</publishTime>
+      <publishTime>04/05/2016 23:39:22</publishTime>
     </File>
     <File Include="bin/EGSW.Services.dll">
-      <publishTime>10/07/2015 00:27:14</publishTime>
+      <publishTime>04/05/2016 23:39:22</publishTime>
     </File>
     <File Include="bin/EGSW.Web.dll">
-      <publishTime>10/07/2015 00:27:16</publishTime>
+      <publishTime>04/05/2016 23:39:24</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>07/07/2015 09:22:56</publishTime>
@@ -463,7 +463,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2015 22:41:11</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>09/26/2015 09:32:23</publishTime>
+      <publishTime>11/27/2015 23:10:51</publishTime>
     </File>
     <File Include="Content/themes/base/accordion.css">
       <publishTime>07/28/2015 23:11:12</publishTime>
@@ -565,37 +565,40 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/28/2015 23:11:11</publishTime>
     </File>
     <File Include="EmailTemplates/CustomerContactUs.htm">
-      <publishTime>10/02/2015 18:18:21</publishTime>
+      <publishTime>10/16/2015 21:48:36</publishTime>
     </File>
     <File Include="EmailTemplates/CustomerPasswordRecoveryMessage - Copy.htm">
       <publishTime>07/29/2015 23:04:58</publishTime>
     </File>
     <File Include="EmailTemplates/CustomerPasswordRecoveryMessage.htm">
-      <publishTime>10/02/2015 18:10:58</publishTime>
+      <publishTime>10/16/2015 21:49:07</publishTime>
     </File>
     <File Include="EmailTemplates/CustomerWelcomeMessage.htm">
-      <publishTime>10/02/2015 18:11:09</publishTime>
+      <publishTime>10/16/2015 21:48:12</publishTime>
+    </File>
+    <File Include="EmailTemplates/Mail-Template - Copy.htm">
+      <publishTime>10/18/2015 11:10:48</publishTime>
     </File>
     <File Include="EmailTemplates/Mail-Template.htm">
       <publishTime>07/29/2015 22:28:26</publishTime>
     </File>
     <File Include="EmailTemplates/NewServiceRequestSiteOwnerNotification.htm">
-      <publishTime>10/02/2015 12:27:07</publishTime>
+      <publishTime>10/16/2015 21:49:27</publishTime>
     </File>
     <File Include="EmailTemplates/OrderAssigneAgentNotification.htm">
-      <publishTime>10/01/2015 09:44:07</publishTime>
+      <publishTime>10/16/2015 21:49:46</publishTime>
     </File>
     <File Include="EmailTemplates/OrderPlacedCustomerNotification.htm">
-      <publishTime>10/03/2015 00:36:34</publishTime>
+      <publishTime>10/16/2015 21:50:15</publishTime>
     </File>
     <File Include="EmailTemplates/OrderPlacedSiteOwnerNotification.htm">
-      <publishTime>10/01/2015 09:31:36</publishTime>
+      <publishTime>10/16/2015 21:50:34</publishTime>
     </File>
     <File Include="EmailTemplates/OrderPlacedWorkCompletedCustomerNotification.htm">
-      <publishTime>10/02/2015 18:12:11</publishTime>
+      <publishTime>10/16/2015 21:50:51</publishTime>
     </File>
     <File Include="EmailTemplates/SendReferANeighborNotification.htm">
-      <publishTime>10/02/2015 18:12:17</publishTime>
+      <publishTime>10/16/2015 21:51:08</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>07/07/2015 09:22:42</publishTime>
@@ -636,8 +639,35 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Grid.mvc.readme">
       <publishTime>07/21/2015 21:28:35</publishTime>
     </File>
+    <File Include="images/img1.jpg">
+      <publishTime>10/18/2015 11:29:20</publishTime>
+    </File>
+    <File Include="images/img2.jpg">
+      <publishTime>10/18/2015 11:29:20</publishTime>
+    </File>
+    <File Include="images/img3.jpg">
+      <publishTime>10/18/2015 11:29:20</publishTime>
+    </File>
+    <File Include="images/img4.jpg">
+      <publishTime>10/18/2015 11:29:20</publishTime>
+    </File>
+    <File Include="images/img5.jpg">
+      <publishTime>10/18/2015 11:29:20</publishTime>
+    </File>
+    <File Include="images/img6.jpg">
+      <publishTime>10/18/2015 10:07:22</publishTime>
+    </File>
+    <File Include="images/img7.jpg">
+      <publishTime>10/18/2015 10:07:22</publishTime>
+    </File>
+    <File Include="images/Thumbs.db">
+      <publishTime>10/18/2015 10:07:22</publishTime>
+    </File>
     <File Include="packages.config">
       <publishTime>09/25/2015 09:44:58</publishTime>
+    </File>
+    <File Include="robots.txt">
+      <publishTime>10/11/2015 11:32:11</publishTime>
     </File>
     <File Include="Scripts/bootstrap-typeahead.js">
       <publishTime>07/28/2015 09:13:31</publishTime>
@@ -693,6 +723,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/jquery-ui-1.11.4.min.js">
       <publishTime>07/28/2015 23:11:11</publishTime>
     </File>
+    <File Include="Scripts/jquery.cycle.all.js">
+      <publishTime>10/18/2015 10:31:49</publishTime>
+    </File>
+    <File Include="Scripts/jquery.cycle2.js">
+      <publishTime>10/18/2015 11:15:01</publishTime>
+    </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>07/07/2015 09:22:53</publishTime>
     </File>
@@ -718,7 +754,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 00:29:20</publishTime>
     </File>
     <File Include="Scripts/public.login.js">
-      <publishTime>10/02/2015 12:22:48</publishTime>
+      <publishTime>10/15/2015 09:40:11</publishTime>
+    </File>
+    <File Include="Scripts/public.zipcode.js">
+      <publishTime>10/15/2015 09:55:01</publishTime>
     </File>
     <File Include="Scripts/respond.js">
       <publishTime>07/07/2015 09:22:53</publishTime>
@@ -730,7 +769,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2015 21:28:59</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>07/30/2015 23:12:40</publishTime>
+      <publishTime>10/18/2015 11:14:38</publishTime>
     </File>
     <File Include="Service References/PayPalPaymentService/EGSW.Web.PayPalPaymentService.AddressVerifyResponse.datasource">
       <publishTime>07/16/2015 09:43:01</publishTime>
@@ -1084,7 +1123,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2015 00:28:04</publishTime>
     </File>
     <File Include="Views/Account/Addresses.cshtml">
-      <publishTime>07/26/2015 18:37:50</publishTime>
+      <publishTime>10/17/2015 09:02:05</publishTime>
     </File>
     <File Include="Views/Account/AjaxLogin.cshtml">
       <publishTime>07/30/2015 01:40:59</publishTime>
@@ -1105,19 +1144,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/07/2015 09:22:55</publishTime>
     </File>
     <File Include="Views/Account/ForgotPassword.cshtml">
-      <publishTime>07/30/2015 00:34:50</publishTime>
+      <publishTime>10/16/2015 09:11:56</publishTime>
     </File>
     <File Include="Views/Account/ForgotPasswordConfirmation.cshtml">
       <publishTime>07/07/2015 09:22:55</publishTime>
     </File>
     <File Include="Views/Account/Info.cshtml">
-      <publishTime>10/03/2015 00:41:28</publishTime>
+      <publishTime>03/23/2016 22:11:02</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>08/06/2015 01:16:08</publishTime>
+      <publishTime>10/16/2015 23:04:46</publishTime>
     </File>
     <File Include="Views/Account/Register.cshtml">
-      <publishTime>09/16/2015 09:23:50</publishTime>
+      <publishTime>10/16/2015 09:05:15</publishTime>
     </File>
     <File Include="Views/Account/ResetPassword.cshtml">
       <publishTime>07/27/2015 00:48:28</publishTime>
@@ -1135,13 +1174,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/07/2015 09:22:55</publishTime>
     </File>
     <File Include="Views/Common/HeaderLinks.cshtml">
-      <publishTime>09/24/2015 09:53:42</publishTime>
+      <publishTime>10/14/2015 01:09:07</publishTime>
     </File>
     <File Include="Views/Common/Index.cshtml">
-      <publishTime>10/07/2015 00:26:05</publishTime>
+      <publishTime>11/27/2015 23:10:51</publishTime>
     </File>
     <File Include="Views/Common/ReferANeighbor.cshtml">
-      <publishTime>10/02/2015 01:27:04</publishTime>
+      <publishTime>10/16/2015 09:04:25</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>07/07/2015 09:22:42</publishTime>
@@ -1150,22 +1189,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/17/2015 00:37:59</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>09/26/2015 10:03:40</publishTime>
+      <publishTime>10/20/2015 00:52:02</publishTime>
     </File>
     <File Include="Views/Home/GenerateQuote.cshtml">
       <publishTime>07/15/2015 23:22:50</publishTime>
     </File>
     <File Include="Views/Home/GutterCleanInfoRegister.cshtml">
-      <publishTime>10/02/2015 11:45:06</publishTime>
+      <publishTime>11/08/2015 12:21:13</publishTime>
     </File>
     <File Include="Views/Home/GutterCleanRequest.cshtml">
-      <publishTime>10/02/2015 12:24:47</publishTime>
+      <publishTime>11/27/2015 23:10:51</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>07/30/2015 23:18:14</publishTime>
     </File>
     <File Include="Views/Home/ProcessPayment.cshtml">
-      <publishTime>10/02/2015 17:30:03</publishTime>
+      <publishTime>03/23/2016 22:11:02</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>07/07/2015 09:22:55</publishTime>
@@ -1186,19 +1225,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/07/2015 09:22:55</publishTime>
     </File>
     <File Include="Views/Order/CustomerOrders.cshtml">
-      <publishTime>07/21/2015 23:49:06</publishTime>
+      <publishTime>10/13/2015 01:31:37</publishTime>
     </File>
     <File Include="Views/Order/Index.cshtml">
-      <publishTime>08/10/2015 22:42:14</publishTime>
+      <publishTime>10/13/2015 01:37:03</publishTime>
     </File>
     <File Include="Views/Order/OrderDetail.cshtml">
       <publishTime>09/20/2015 10:06:56</publishTime>
     </File>
     <File Include="Views/Order/Survey.cshtml">
-      <publishTime>09/26/2015 11:14:55</publishTime>
+      <publishTime>10/17/2015 08:24:09</publishTime>
     </File>
     <File Include="Views/Order/SurveyConfirmation.cshtml">
-      <publishTime>08/26/2015 00:51:36</publishTime>
+      <publishTime>10/17/2015 09:17:57</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>07/07/2015 09:22:54</publishTime>
@@ -1222,7 +1261,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/18/2015 23:18:04</publishTime>
     </File>
     <File Include="Views/Shared/_CreateOrUpdateAddress.cshtml">
-      <publishTime>08/06/2015 01:02:20</publishTime>
+      <publishTime>10/17/2015 08:58:29</publishTime>
     </File>
     <File Include="Views/Shared/_Grid.cshtml">
       <publishTime>07/21/2015 21:28:34</publishTime>
@@ -1231,16 +1270,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2015 21:28:34</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/02/2015 01:30:36</publishTime>
+      <publishTime>11/27/2015 23:10:51</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>07/07/2015 09:22:56</publishTime>
     </File>
     <File Include="Views/Static/AboutUs.cshtml">
-      <publishTime>10/02/2015 01:25:39</publishTime>
+      <publishTime>10/16/2015 09:01:48</publishTime>
     </File>
     <File Include="Views/Static/Faq.cshtml">
-      <publishTime>10/02/2015 01:28:03</publishTime>
+      <publishTime>10/16/2015 09:03:22</publishTime>
     </File>
     <File Include="Views/Static/Index.cshtml">
       <publishTime>07/26/2015 16:03:47</publishTime>
@@ -1252,7 +1291,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/07/2015 09:22:42</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/07/2015 00:27:28</publishTime>
+      <publishTime>04/05/2016 23:39:30</publishTime>
     </File>
   </ItemGroup>
 </Project>

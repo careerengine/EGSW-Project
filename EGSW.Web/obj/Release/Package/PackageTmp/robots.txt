@@ -1,0 +1,11 @@
+User-agent: *
+Sitemap: https://eguttercleaning.com/sitemap.xml
+Disallow: /bin/
+Disallow: /content/
+Disallow: /content/files/
+Disallow: /survey/
+Disallow: /survey
+Disallow: /generate-quote/
+Disallow: /generate-quote
+Disallow: /ajax/sendnewserviewrequest/
+Disallow: /ajax/sendnewserviewrequest

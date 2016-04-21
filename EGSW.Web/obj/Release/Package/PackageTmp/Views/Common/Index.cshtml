@@ -1,0 +1,57 @@
+﻿@model EGSW.Data.SeoUrl
+@{
+    ViewBag.Title ="Gutter Cleaning "+Model.CityName+" "+ Model.StateName+" - E-Gutter-Cleaning | Residential Home Gutters Cleaned Fast at Low Cost";
+    ViewBag.MetaDescription = "Residential house gutter cleaning service in " + Model.CityName + " " + Model.StateName + " - " + Model.CountyName + ". We focus on cleaning your gutters well, fast and inexpensively.";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Gutter Cleaning Services in @Model.CityName @Model.StateAbbr @Model.ZIPCode.Value.ToString().PadLeft(5, '0')</h1>
+       
+        <div id="">
+            <h4><a href="@Url.RouteUrl("HomePage")">Get a gutter cleaning quote in 17 seconds!</a></h4>
+
+            <p class="text-justify">Our simple goal is to provide an easy solution to a dirty job. Offering a fast, inexpensive and quality approach to your gutter cleaning needs year round.</p>
+
+            <p class="text-justify">
+                By eliminating logistical challenges, customer service inefficiencies and billing
+                inefficiencies, we can provide better gutter cleaning service at about a 60% reduction in cost.  Importantly, we DO NOT “upsell” additional services or perform unrequested, spontaneous services.  We do ONE thing -- that is clean gutters.
+            </p>
+
+            <p class="text-justify">
+                <a href="@Url.RouteUrl("HomePage")">E-gutter-cleaning.com</a> team members are local residents to your area - @(Model.CountyName).
+                They are your neighbors, vetted and selected to represent their home base and sworn to
+                uphold the <a href="@Url.RouteUrl("HomePage")">E-gutter-cleaning.com</a> seal of approval. Each team is charged with doing whatever
+                is necessary to provide top-notch, professional service in the best interest of the customer.
+            </p>
+            
+            <p class="text-justify">Currently, E-gutter-cleaning also provides services in these areas:</p>
+            @if (ViewBag.SeoRandomList != null)
+            {
+                <ul> 
+                    @foreach(var item in ViewBag.SeoRandomList)
+                    {
+                        String link = "/" + item.SeoName; 
+                        <li><a href='@link'> @item.CityName - @item.ZIPCode.ToString().PadLeft(5, '0')</a>  </li>
+                        @*<li><a href="@Url.RouteUrl("SeoFriendlyUrl")">@item.CityName - @item.ZIPCode.ToString().PadLeft(5, '0')</a>  </li>*@
+                    }
+                </ul>
+            }
+            
+
+            <p class="text-justify">
+                By focusing on residential home Gutter Cleaning, E-gutter-cleaning.com has learned the best and most efficient techniques to keep your gutters debris free.
+            </p>
+            <p class="text-justify">
+                Our growth is due in large part to word-of-mouth referrals from satisfied customers. <a href="@Url.RouteUrl("ReferANeighbor")">Refer a neighbor today!</a>
+            </p>
+            <p class="text-justify">
+                Our team takes your satisfaction as a badge of pride!
+            </p>
+            <p class="text-justify"> -- The E-gutter-cleaning.com Team</p>
+            
+        </div>
+
+    </div>
+</div>

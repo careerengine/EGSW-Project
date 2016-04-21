@@ -35,7 +35,6 @@ namespace EGSW.Services
         protected virtual string GetSiteUrl()
         {
 
-
             return ConfigurationManager.AppSettings["SiteUrl"];
         }
 

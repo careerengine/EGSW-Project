@@ -1,0 +1,138 @@
+﻿@model EGSW.Web.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register - E-Gutter-Cleaning | Inexpensive Low-Cost Fast Residential House Gutter Cleaning Service";
+    ViewBag.MetaDescription = "Register as an Eguttercleaning user and avail yourself to fast, low cost residential house gutter cleaning service.  Get a gutter cleaning quote in 17 seconds.";
+    
+}
+<script src="~/Scripts/public.login.js?v=1.2"></script>
+
+<script type="text/javascript">
+    Checkout.init('@Url.RouteUrl("GutterCleanRequest")');
+    LoginMethod.init('#ajax-loginform', '@Url.Action("ajaxlogin","account")');
+</script>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Customer</h2>
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <h4>Create a new account.</h4>
+                <hr />              
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                        @*<input type="text" id="Search" data-provide="typeahead" placeholder="Client Name" autocomplete="off" />*@
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-9">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="submit" class="btn btn-default" value="Register" />
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    <div class="col-md-6">
+        <h2>Log In</h2>
+        <section id="loginForm">
+            
+            <div class="form-horizontal">
+                <div id="login-form-load">
+
+
+
+
+                    <h4>log in.</h4>
+                    <hr>
+                    <div class="validation-summary-errors text-danger">
+                        <ul>
+                            <li style="display:none"></li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <label for="AjaxEmail" class="col-md-2 control-label">Email</label>
+                        <div class="col-md-10">
+                            <input type="text" value="" name="AjaxEmail" id="AjaxEmail" data-val-required="The Email field is required." data-val-email="The Email field is not a valid e-mail address." data-val="true" class="input-validation-error form-control">
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="AjaxPassword" class="col-md-2 control-label">Password</label>
+                        <div class="col-md-10">
+                            <input type="password" name="AjaxPassword" id="AjaxPassword" data-val-required="The Password field is required." data-val="true" class="input-validation-error form-control">
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                <input type="checkbox" value="true" name="AjaxRememberMe" id="AjaxRememberMe" data-val-required="The Remember me? field is required." data-val="true"><input type="hidden" value="false" name="AjaxRememberMe">
+                                <label for="AjaxRememberMe">Remember me?</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div id="login-method-buttons-container">
+                            <input type="button" value="Log in" onclick="LoginMethod.Login()" class="btn btn-primary" />
+                            <span class="please-wait" id="login-method-please-wait" style="display: none;">Loading...</span>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+
+
+
+</section>
+    </div>
+    </div>
+
+
+
+

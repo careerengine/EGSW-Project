@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @if (ViewBag.MetaDescription!=null)
+    { 
+        <meta name="Description" content="@ViewBag.MetaDescription" />
+    }
+
+
+    @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+    
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+
+    <script src="~/Scripts/public.zipcode.js?v=1.5"></script>
+    <script type="text/javascript">
+        ZipCodeMethod.init("request-method-message", '@Url.Action("ValidateZipcode", "Ajax")');
+    </script>
+      
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Eguttercleaning.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">                   
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.RouteLink("About", "AboutUs")</li>
+                    <li>@Html.RouteLink("Contact", "ContactUs")</li>
+                    <li>@Html.RouteLink("FAQ", "FAQ")</li>
+                    <li>@Html.RouteLink("Refer A Neighbor", "ReferANeighbor")</li>                    
+                </ul>                
+                @Html.Action("HeaderLinks", "Common")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+       
+    </div>
+    
+    <div class="clearfix" style="margin:0 0 20px;"></div>
+    <div class="footer">
+        <div class="footer_midle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Historical:</h4>
+                        <p class="text-justify">
+                            eguttercleaning was started by a very successful gutter, roofing and drainage company owner after 18 prosperous years in the gutter construction business.   Being an efficiency and systems purist, he couldn't accept the reality that his company was successfully charging almost 220% more than what he thought it would cost to clean gutters.  He realized that in order to lower price, a paradigm shift must occur.
+                        </p>
+                        <p class="text-justify">
+                            By eliminating logistical challenges, customer service inefficiencies, billing inefficiencies and new customers evident apprehension of being "upsold" or sold into buying unsolicited services, he could provide better gutter cleaning service at about 55% reduction in cost.
+                        </p>
+                        <p class="text-justify">
+                            With the help of a technical co-founder, eguttercleaning was born.
+                        </p>
+                        <p class="text-justify">
+                            Most of what you will order with exception to customer service, all the mechanics of your transaction will be automated.  We will thereby be freed up to focus on one thing: cleaning your gutters well, fast and consequently, inexpensively.
+                        </p>
+                        <p class="text-justify">
+                            We’re the good guys, we hope you will agree.
+
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                    @*<div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="social_left">
+                                    <li class="facebook"><a href="#"><i class="fa fa-facebook-square fa-3x"></i></a></li>
+                                    <li class="fb_text">
+                                        <h4><a href="#">Follow us on Facebook</a></h4>
+                                    </li>
+                                    <div class="clearfix"> </div>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="social_left">
+                                    <li class="facebook"><a href="#"><i class="fa fa-twitter-square fa-3x"></i></a></li>
+                                    <li class="fb_text">
+                                        <h4><a href="#">Follow us on Twitter</a></h4>
+                                    </li>
+                                    <div class="clearfix"> </div>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="social_left">
+                                    <li class="facebook"><a href="#"><i class="fa fa-google-plus-square fa-3x"></i></a></li>
+                                    <li class="fb_text">
+                                        <h4><a href="#">Follow us on Google +</a></h4>
+                                    </li>
+                                    <div class="clearfix"> </div>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="social_left">
+                                    <li class="facebook"><a href="#"><i class="fa fa-linkedin-square fa-3x"></i></a></li>
+                                    <li class="fb_text">
+                                        <h4><a href="#">Follow us on LinkedIn</a></h4>
+                                    </li>
+                                    <div class="clearfix"> </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>*@
+                </div>
+                <div class="container">
+
+                    <div class="footer-lower">
+
+                        <span class="footer-disclaimer" >Copyright &copy; @DateTime.Now.Year All rights reserved. | <a href="@Url.RouteUrl("TermsAndCondition")">Term & Conditions</a></span>
+                                     
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            @*@Scripts.Render("~/bundles/jquery")*@
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-67045220-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+            @*<script src="~/Scripts/bootstrap3-typeahead.js"></script>
+            <script type="text/javascript">
+            $(document).ready(function () {
+
+                var countries;
+
+                $("#Search").typeahead({
+
+                    source: function (query, process) {
+                        var songList = [];
+
+                        // This is going to make an HTTP post request to the controller
+                        return $.post('@Url.Action("GetSongs","Ajax")', { query: query }, function (data) {
+                            // Loop through and push to the array
+                            $.each(data, function (i, song) {
+                                var item = song.Name;
+                                songList.push(item);
+                            });
+                            // Process the details
+                            process(songList);
+                        });
+                    }
+
+                });
+
+
+            });
+            </script>*@
+</body>
+</html>

@@ -1,0 +1,252 @@
+﻿@model GutterCleanRequestModel
+
+@using EGSW.Web.Models.Orders
+
+@{
+    ViewBag.Title = "Home page - E-Gutter-Cleaning | Inexpensive Low-Cost Fast Residential House Gutter Cleaning Service";
+    ViewBag.MetaDescription = "We provide one service: fast, inexpensive residential house gutter cleaning.  Gutters are cleaned by local, vetted workers who get this dirty job done right.";
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+}
+
+<script src="~/Scripts/public.login.js?v=1.5"></script>
+<script src="~/Scripts/jquery.cycle.all.js"></script>
+<script src="~/Scripts/jquery.cycle2.js"></script>
+
+
+
+
+<script>
+    ServiceRequestMethod.init("request-method-message", '@Url.Action("SendNewServiewRequest", "Ajax")');
+</script>
+
+<style>
+a:link    {color:#428bca; background-color:transparent; text-decoration:underline}
+/*a:visited {color:pink; background-color:transparent; text-decoration:none} */
+a:hover   {color:red; background-color:transparent; text-decoration:underline}
+a:active  {color:yellow; background-color:transparent; text-decoration:underline}
+</style>
+
+<div class="col-md-6">
+    <h1 style="font-size:20px;"> Congratulations! You are 17 seconds away from receiving a Gutter Cleaning Quote for your home!</h1>
+    <div class="form-horizontal">
+        @using (Html.BeginForm("GutterCleanRequest", "Home", FormMethod.Post, new { id = "GutterCleanRequestForm", @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+
+                <label for="QuestionSquareFootage" class="col-md-3 control-label">Square Footage</label>
+                <div class="col-md-9">
+                    @Html.DropDownListFor(m => m.QuestionSquareFootage, Model.AvailableSquareFootage, "Select", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="QuestionStyleOfGutter" class="col-md-3 control-label">Style Of Gutter</label>
+                <div class="col-md-9">
+                    @Html.DropDownListFor(m => m.QuestionStyleOfGutter, Model.AvailableStyleOfGutter, "Select", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="QuestionYearBuilt" class="col-md-3 control-label">Year Built</label>
+                <div class="col-md-9">
+                    @Html.DropDownListFor(m => m.QuestionYearBuilt, Model.AvailableYearBuilt, "Select", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="RoofMaterial" class="col-md-3 control-label">Roof Material</label>
+                <div class="col-md-9">
+                    @Html.DropDownListFor(m => m.RoofMaterial, Model.AvailableRoofMaterial, "Select", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="RoofMaterial" class="col-md-3 control-label">Delivery Time</label>
+                <div class="col-md-9">
+                    @Html.DropDownListFor(m => m.QuestionDeliveryTime, Model.AvailableDeliveryTime, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-9">
+                    <input type="submit" class="btn btn-primary" id="GenerateQuote" value="Generate Quote" />
+                    <span class="please-wait" id="Quote-method-please-wait" style="display: none;">Loading...</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="OrderTotal" class="col-md-3 control-label">Order Total</label>
+                <div class="col-md-9">
+                    <div id="TotalAmount"></div>
+                    @Html.TextBoxFor(m => m.OrderTotal, new { @class = "form-control", @readonly = "readonly", style = "display:none;" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-9">
+                    <input type="submit" class="btn btn-primary" id="process-now" value="Process Now" disabled="disabled" />
+                </div>
+            </div>
+        }
+    </div>
+
+    <script>
+    $(document).ready(function () {
+
+
+
+
+        $('#GenerateQuote').click(function (event) {
+            $('#Quote-method-please-wait').show();
+            $.ajax({
+                cache: false,
+                url: '@Url.RouteUrl("GenerateQuote")',
+                data: $("#GutterCleanRequestForm").serialize(),
+                type: 'post',
+                success: success_process,
+                complete: resetLoadWaiting,
+                error: ajaxFailure
+            });
+
+            $('#Quote-method-please-wait').hide();
+            return false;
+        })
+
+
+
+        function success_process(response) {
+
+
+
+                //display notification
+                if (response.Success == true) {
+                    $('#OrderTotal').val(response.TotalAmount);
+                    $('#TotalAmount').html("$" + response.TotalAmount);
+                    $('#process-now').removeAttr('disabled');
+                }
+                else {
+
+                    if ((typeof response.message) == 'string') {
+                        alert(response.message);
+                    } else {
+                        alert(response.message.join("\n"));
+                    }
+
+                    $('#TotalAmount').html("$" + response.TotalAmount);
+                }
+                return false;
+
+
+
+        }
+
+        function resetLoadWaiting() {
+            $('#Quote-method-please-wait').hide();
+        }
+
+        function setLoadWaiting() {
+            $('#Quote-method-please-wait').show();
+        }
+
+        function ajaxFailure () {
+            alert('Failed to add the product. Please refresh the page and try one more time.');
+            $('#Quote-method-please-wait').hide();
+        }
+    });
+    </script>
+
+</div>
+<div class="col-md-6">
+    
+    <div class="form-horizontal">
+        <script language="javascript">
+    //$(document).ready(function () {
+    //    $('#slider1').cycle({
+    //        fx: 'fade', //'scrollLeft,scrollDown,scrollRight,scrollUp',blindX, blindY, blindZ, cover, curtainX, curtainY, fade, fadeZoom, growX, growY, none, scrollUp,scrollDown,scrollLeft,scrollRight,scrollHorz,scrollVert,shuffle,slideX,slideY,toss,turnUp,turnDown,turnLeft,turnRight,uncover,ipe ,zoom
+    //        speed: 'slow',
+    //        timeout: 2000,
+    //        slideResize: 0,
+    //        containerResize: 1,
+    //        width: '100%',
+    //        fit: 1
+    //    });
+    //});
+        </script>
+      
+        <div class="form-group">
+
+            <div class="col-md-12" style="height:auto;">
+
+                <div class="cycle-slideshow">
+                    <img src="~/images/img1.jpg">
+                    @*<img src="~/images/img2.jpg">*@
+                    <img src="~/images/img3.jpg">
+                    <img src="~/images/img4.jpg">
+                    <img src="~/images/img5.jpg">
+                </div>
+
+                @*<div class="slider">
+                    <ul id="slider1">
+                        <li><img border="0" src="~/images/img1.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img2.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img3.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img4.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img5.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img6.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                        <li><img border="0" src="~/images/img7.jpg"  alt="jQuery Image slider" title="jQuery Image slider" /></li>
+                    </ul>
+                </div>*@
+               
+            </div>
+        </div>
+        <div></div>
+        <h4 style="font-size:16px;color:#428bca">Currently providing gutter cleaning service in <a href="@Url.Content("/common/citynames?name=Bergen")">Bergen County, New Jersey</a>  | <a href="@Url.Content("/common/citynames?name=Rockland-county")">Rockland County, New York</a> | <a href="@Url.Content("/common/citynames?name=Orange-county")">Orange County, New York</a> .</h4>
+
+        <p>
+
+            If you would like to be notified when Eguttercleaning becomes available in your area please enter your:
+        </p>
+        <div class="form-group">
+
+            <div class="col-md-12">
+                <div class="col-md-5">
+                    <label for="OrderTotal" class="control-label">
+                        email address:*
+                    </label>
+                    @Html.TextBox("ServiceEmailAdddress", "", new { @class = "form-control" })
+                </div>
+                <div class="col-md-5">
+                    <label for="OrderTotal" class="control-label">
+                        zip code?*
+                    </label>
+                    @Html.TextBox("ServiceZipCode", "", new { @class = "form-control",
+                                                              //onchange = "ZipCodeMethod.CheckZipCodeAvailability('ServiceZipCode', 'request-method-message')"
+                                                              
+               })
+                </div>
+                <div class="col-md-2" style="padding-top:25px;">                    
+                    <input type="button" value="Submit" onclick="ServiceRequestMethod.SendRequest()" class="btn btn-primary" />
+                </div>
+
+                </div>
+                
+            </div>        
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <div id="login-method-buttons-container">
+                   
+
+                </div>
+                <div class="col-md-12" style="padding-top:10px;">
+                    <span id="request-method-message"  style="display: none;"></span>
+                    <span class="please-wait" id="request-method-please-wait" style="display: none;">Loading...</span>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</div>

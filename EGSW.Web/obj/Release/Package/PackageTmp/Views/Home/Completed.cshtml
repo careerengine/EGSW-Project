@@ -1,0 +1,30 @@
+﻿@model EGSW.Web.Models.CheckoutCompletedModel
+
+@{
+    ViewBag.Title = "Completed";
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+}
+
+
+<div class="page-title">
+    <h1>Thank you</h1>
+</div>
+<div class="page-body checkout-data">
+   
+    <div class="section order-completed">
+        <div class="title">
+            <strong>Congratulations! Your gutters will be cleaned within @Model.QuestionDeliveryTimeStr!</strong>
+        </div>
+        <div class="details">
+            <div class="order-number">
+                <strong>Order number: @Model.OrderId</strong>
+            </div>
+            <div class="details-link">
+                <a href="@Url.RouteUrl("OrderDetails", new { orderID = Model.OrderId })">Click here for order details.</a>
+            </div>
+        </div>
+        
+    </div>
+   
+</div>
+
