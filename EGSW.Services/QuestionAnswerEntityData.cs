@@ -115,61 +115,67 @@ namespace EGSW.Services
             decimal cost = 00M;
 
             if (QuestionSquareFootage > 0 && QuestionSquareFootage == 2000)
-                cost = 86.00M;
-
-            if (QuestionSquareFootage > 2000 && QuestionSquareFootage == 2400)
-                cost = 96.00M;
-
-            if (QuestionSquareFootage > 2400 && QuestionSquareFootage == 2800)
-                cost = 106.00M;
-
-            if (QuestionSquareFootage > 2800 && QuestionSquareFootage == 3000)
-                cost = 116.00M;
-
-            if (QuestionSquareFootage > 3000 && QuestionSquareFootage == 3400)
-                cost = 126.00M;
-
-            if (QuestionSquareFootage > 3400 && QuestionSquareFootage == 3800)
                 cost = 146.00M;
 
-            if (QuestionSquareFootage > 3800 && QuestionSquareFootage == 4000)
+            if (QuestionSquareFootage > 2000 && QuestionSquareFootage == 2400)
                 cost = 166.00M;
+
+            if (QuestionSquareFootage > 2400 && QuestionSquareFootage == 2800)
+                cost = 166.00M;
+
+            if (QuestionSquareFootage > 2800 && QuestionSquareFootage == 3000)
+                cost = 166.00M;
+
+            if (QuestionSquareFootage > 3000 && QuestionSquareFootage == 3400)
+                cost = 176.00M;
+
+            if (QuestionSquareFootage > 3400 && QuestionSquareFootage == 3800)
+                cost = 176.00M;
+
+            if (QuestionSquareFootage > 3800 && QuestionSquareFootage == 4000)
+                cost = 196.00M;
 
 
 
 
             if (QuestionSquareFootage > 4000 && QuestionSquareFootage == 4400)
-                cost = 176.00M;
-
-            if (QuestionSquareFootage > 4400 && QuestionSquareFootage == 4800)
-                cost = 186.00M;
-
-            if (QuestionSquareFootage > 4800 && QuestionSquareFootage == 5200)
-                cost = 196.00M;
-
-            if (QuestionSquareFootage > 5200 && QuestionSquareFootage == 5800)
                 cost = 206.00M;
 
+            if (QuestionSquareFootage > 4400 && QuestionSquareFootage == 4800)
+                cost = 228.00M;
+
+            if (QuestionSquareFootage > 4800 && QuestionSquareFootage == 5000)
+                cost = 238.00M;
+
+            if (QuestionSquareFootage > 5000 && QuestionSquareFootage == 5200)
+                cost = 248.00M;
+
+            if (QuestionSquareFootage > 5200 && QuestionSquareFootage == 5500)
+                cost = 278.00M;
+
+            if (QuestionSquareFootage > 5500 && QuestionSquareFootage == 5800)
+                cost = 288.00M;
+
             if (QuestionSquareFootage > 5800 && QuestionSquareFootage == 6200)
-                cost = 216.00M;
+                cost = 298.00M;
 
             if (QuestionSquareFootage > 6200 && QuestionSquareFootage == 7000)
-                cost = 246.00M;
+                cost = 300.00M;
 
 
 
             if (QuestionSquareFootage > 7000 && QuestionSquareFootage == 8000)
-                cost = 256.00M;
+                cost = 335.00M;
 
 
             if (QuestionSquareFootage > 8000 && QuestionSquareFootage == 9000)
-                cost = 266.00M;
+                cost = 400.00M;
 
             if (QuestionSquareFootage > 9000 && QuestionSquareFootage == 10000)
-                cost = 306.00M;
+                cost = 406.00M;
 
             if (QuestionSquareFootage > 10000 && QuestionSquareFootage == 15000)
-                cost = 406.00M;
+                cost = 516.00M;
 
             if (QuestionSquareFootage > 15000 && QuestionSquareFootage == 20000)
                 cost = 506.00M;
