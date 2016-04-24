@@ -21,7 +21,9 @@ namespace EGSW.Services
             items.Add(new SelectListItem { Text = "< 4000", Value = "4000", });
             items.Add(new SelectListItem { Text = "< 4400", Value = "4400", });
             items.Add(new SelectListItem { Text = "< 4800", Value = "4800", });
+            items.Add(new SelectListItem { Text = "< 5000", Value = "5000", });
             items.Add(new SelectListItem { Text = "< 5200", Value = "5200", });
+            items.Add(new SelectListItem { Text = "< 5500", Value = "5500", });
             items.Add(new SelectListItem { Text = "< 5800", Value = "5800", });
             items.Add(new SelectListItem { Text = "< 6200", Value = "6200", });
             items.Add(new SelectListItem { Text = "< 7000", Value = "7000", });
@@ -218,7 +220,7 @@ namespace EGSW.Services
                 percentag = 0;
 
             if (QuestionStyleOfGutter == 2)
-                percentag = 20;
+                percentag = 10;
 
 
 
