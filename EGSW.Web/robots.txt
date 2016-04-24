@@ -1,5 +1,5 @@
 User-agent: *
-Sitemap: https://eguttercleaning.com/sitemap.xml
+Sitemap: https://ericsguttercleaning.com/sitemap.xml
 Disallow: /bin/
 Disallow: /content/
 Disallow: /content/files/
