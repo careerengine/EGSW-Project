@@ -19,8 +19,8 @@ namespace EGSW.Framework
             {
                 ID = "recaptcha",
                 Theme = theme,
-                PublicKey = "6Lcvhg0TAAAAAIkh-p4liZfewyUAW4fbMInf91aU",
-                PrivateKey = "6Lcvhg0TAAAAAFskn3cj6vNNoI7XP3TjTteYmQ6T"
+                PublicKey = "6LdULB4TAAAAAKHAXmbOrbyrVBCHwji_E1Y0w-dc",
+                PrivateKey = "6LdULB4TAAAAAODSw79PBZOb5k4vYI2m3zUTFerb"
             };
 
             var htmlWriter = new HtmlTextWriter(new StringWriter());
