@@ -54,7 +54,7 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%customerpassword%", customer.Password);
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
 
-            EmailAccess.SendMail(_siteSetting.SenderEmail,_siteSetting.SenderName, customer.Email, "", "", mailBody, "Eguttercleaning Registration Confirmation");
+            EmailAccess.SendMail(_siteSetting.SenderEmail,_siteSetting.SenderName, customer.Email, "", "", mailBody, "ericsguttercleaning Registration Confirmation");
 
             return 1;
         }
@@ -71,7 +71,7 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%message%", contactUs.Message);
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
 
-            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, contactUs.Email, "", "", mailBody, "Eguttercleaning - Thank you for contacting us!");
+            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, contactUs.Email, "", "", mailBody, "ericsguttercleaning - Thank you for contacting us!");
 
             return 1;
         }
@@ -85,7 +85,7 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%yourname%", YourName);            
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
 
-            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, FriendEmail, "", "", mailBody, "Refer A Neighbor - Eguttercleaning Service");
+            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, FriendEmail, "", "", mailBody, "Refer A Neighbor - ericsguttercleaning Service");
 
             return 1;
         }
@@ -99,7 +99,7 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%yourname%", ZipCode);
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
 
-            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, _siteSetting.SenderEmail, "", "", mailBody, "Eguttercleaning - New Service Request!");
+            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, _siteSetting.SenderEmail, "", "", mailBody, "ericsguttercleaning - New Service Request!");
 
             return 1;
         }
@@ -120,7 +120,7 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
 
 
-            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, customer.Email, "", "", mailBody, "Eguttercleaning Password Reset");
+            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, customer.Email, "", "", mailBody, "ericsguttercleaning Password Reset");
 
             return 1;
         }
@@ -163,7 +163,7 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
             mailBody = mailBody.Replace("%customeremail%", order.Customer.Email);
 
-            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, order.Customer.Email, "", "", mailBody, "Eguttercleaning Request | Order #: " + order.Id);
+            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, order.Customer.Email, "", "", mailBody, "ericsguttercleaning Request | Order #: " + order.Id);
 
             return 1;
         }
@@ -300,7 +300,7 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
             mailBody = mailBody.Replace("%customeremail%", order.Customer.Email);
 
-            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, order.Customer.Email, "", "", mailBody, "Eguttercleaning Order #: " + order.Id + "| Work Completed");
+            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, order.Customer.Email, "", "", mailBody, "ericsguttercleaning Order #: " + order.Id + "| Work Completed");
 
             return 1;
         }

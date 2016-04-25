@@ -248,7 +248,7 @@ var ServiceRequestMethod = {
         if (response.Result) {            
             elementId.addClass('text-success');
             elementId.removeClass('text-danger');
-            elementId.html("Your information has been recorded.  We will notify you when Eguttercleaning is available in your area.");
+            elementId.html("Your information has been recorded.  We will notify you when ericsguttercleaning is available in your area.");
             
         }
         else {
