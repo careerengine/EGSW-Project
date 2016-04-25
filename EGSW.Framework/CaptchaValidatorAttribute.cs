@@ -24,7 +24,7 @@ namespace EGSW.Framework
                     //validate captcha
                     var captchaValidtor = new Recaptcha.RecaptchaValidator
                     {
-                        PrivateKey = "6Lcvhg0TAAAAAFskn3cj6vNNoI7XP3TjTteYmQ6T",//captchaSettings.ReCaptchaPrivateKey,
+                        PrivateKey = "6LdIPB4TAAAAAJ3UVZFyyY9mI3DBELNFjw-ODTp7",//captchaSettings.ReCaptchaPrivateKey,
                         RemoteIP = filterContext.HttpContext.Request.UserHostAddress,
                         Challenge = captchaChallengeValue,
                         Response = captchaResponseValue
