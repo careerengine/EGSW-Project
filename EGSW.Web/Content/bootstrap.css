@@ -4274,8 +4274,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-nav {
     float: left;
-    margin: 0;
+    margin: 0px 0px 0px 140px;
   }
+  .logo img{width:95px; position:absolute;}
   .navbar-nav > li {
     float: left;
   }
@@ -4501,8 +4502,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+  background-color: #428bca;
+  border-color: #357ebd;
 }
 
 .navbar-inverse .navbar-brand {
@@ -4520,7 +4521,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #999999;
+  color: #ffffff;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,

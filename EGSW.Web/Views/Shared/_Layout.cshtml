@@ -31,7 +31,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("eguttercleaning.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="@Url.RouteUrl("HomePage")" class="navbar-brand" style="position:absolute;z-index:999;padding:0px;">
+                    <img src="~/images/logo.png" height="60" width="150"/>
+                </a>
+
+                @*@Html.ActionLink("eguttercleaning.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">                   
