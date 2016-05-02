@@ -20,11 +20,16 @@ namespace EGSW.Web.ActionFilters
                 // when connection to the application is local, don't do any HTTPS stuff
                 return;
             }
-            else if (filterContext.HttpContext.Request.Url.Host.ToLower().Contains("test-gutter.classifiedsolutionsgroup") || filterContext.HttpContext.Request.Url.Host.ToLower().Contains("ericsguttercleaning"))
+            else if (filterContext.HttpContext.Request.Url.Host.ToLower().Contains("test-gutter.classifiedsolutionsgroup"))
             {
                 // when connection to the application is local, don't do any HTTPS stuff
                 return;
             }
+            //else if (filterContext.HttpContext.Request.Url.Host.ToLower().Contains("test-gutter.classifiedsolutionsgroup") || filterContext.HttpContext.Request.Url.Host.ToLower().Contains("ericsguttercleaning"))
+            //{
+            //    // when connection to the application is local, don't do any HTTPS stuff
+            //    return;
+            //}
 
             base.OnAuthorization(filterContext);
         }
