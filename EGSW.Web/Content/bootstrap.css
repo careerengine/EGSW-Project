@@ -4274,7 +4274,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-nav {
     float: left;
-    margin: 0px 0px 0px 140px;
+    margin: 0px 0px 0px 270px;
   }
   .logo img{width:95px; position:absolute;}
   .navbar-nav > li {
