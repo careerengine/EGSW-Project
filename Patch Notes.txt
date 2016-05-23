@@ -1,3 +1,10 @@
+Date: 05/23/2016
+Description: 
+Changed Email languages for all the email as per Email document. 
+Chagned reply to Email.
+Added AdminEmail key in web.config file
+<add key="AdminEmail" value="ericcaoili@yahoo.com" />
+
 
 ***********************************************************************
 Date: 01/2/2016
