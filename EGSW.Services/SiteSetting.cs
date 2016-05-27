@@ -15,6 +15,7 @@ namespace EGSW.Services
         public string SenderName { get; set; }
         public string ReturnEmail { get; set; }
         public string BCCEmail { get; set; }
+        public string AdminEmail { get; set; }
 
         
         //public string SiteUrl { get; set; }
@@ -27,6 +28,7 @@ namespace EGSW.Services
             SenderName = ConfigurationManager.AppSettings["SenderName"].ToString();
             ReturnEmail = ConfigurationManager.AppSettings["ReturnEmail"].ToString();
             BCCEmail = ConfigurationManager.AppSettings["BCCEmail"].ToString();
+            AdminEmail = ConfigurationManager.AppSettings["AdminEmail"].ToString();
         }
     }
 }
