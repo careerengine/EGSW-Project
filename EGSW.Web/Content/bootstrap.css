@@ -4132,7 +4132,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
     overflow-y: visible;
   }
   .navbar-collapse .navbar-nav.navbar-left:first-child {
-    margin-left: -15px;
+    margin-left: 230px;
   }
   .navbar-collapse .navbar-nav.navbar-right:last-child {
     margin-right: -15px;
@@ -4274,7 +4274,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-nav {
     float: left;
-    margin: 0px 0px 0px 270px;
+   
   }
   .logo img{width:95px; position:absolute;}
   .navbar-nav > li {
