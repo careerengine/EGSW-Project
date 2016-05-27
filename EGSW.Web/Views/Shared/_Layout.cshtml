@@ -32,13 +32,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="@Url.RouteUrl("HomePage")" class="navbar-brand" style="position:absolute;z-index:999;padding:0px;">
-                    <img src="~/images/logo.jpg" height="100" />
+                    <img src="~/images/logo.jpg"/>
                  </a>
 
-                @*@Html.ActionLink("eguttercleaning.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                @*@Html.ActionLink("ericsguttercleaning.com", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">                   
+                <ul class="nav navbar-nav navbar-left">                  
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.RouteLink("About", "AboutUs")</li>
                     <li>@Html.RouteLink("Contact", "ContactUs")</li>
