@@ -319,7 +319,7 @@ namespace EGSW.Web.Controllers
                                     
                                     
                                     //send email
-                                    //_workflowMessageService.SendCustomerWelcomeMessage(customer);
+                                    _workflowMessageService.SendCustomerWelcomeMessage(customer);
 
                                     GutterCleanRequestModel Requestmodel = _httpContext.Session["GutterCleanRequestModel"] as GutterCleanRequestModel;
                                     if (Requestmodel == null)
