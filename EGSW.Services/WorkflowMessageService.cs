@@ -54,7 +54,9 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%customerpassword%", customer.Password);
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
 
-            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, customer.Email, "", _siteSetting.BCCEmail, mailBody, "Eric's Gutter Cleaning Registration Confirmation");
+            var BCC = _siteSetting.BCCEmail + "," + "info@ericsguttercleaning.com";
+
+            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, customer.Email, "", BCC, mailBody, "Eric's Gutter Cleaning Registration Confirmation");
 
             return 1;
         }
@@ -72,11 +74,11 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
 
             var BCC = _siteSetting.BCCEmail;
-            if (!_siteSetting.SenderName.Contains("Test"))
-            {
-                BCC = BCC + ",info@ericsguttercleaning.com";
-            }
-            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, contactUs.Email, "", BCC, mailBody, " Eric's Gutter Cleaning - Thank you for contacting us!");
+            //if (!_siteSetting.SenderName.Contains("Test"))
+            //{
+              //  BCC = BCC + ",info@ericsguttercleaning.com";
+            //}
+            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, contactUs.Email, "info@ericsguttercleaning.com", _siteSetting.BCCEmail, mailBody, " Eric's Gutter Cleaning - Thank you for contacting us!");
 
             return 1;
         }
@@ -194,6 +196,7 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%customeremail%", order.Customer.Email);
 
             mailBody = mailBody.Replace("%orderid%", order.Id.ToString());
+            mailBody = mailBody.Replace("%orderidURL%", _siteSetting.SiteUrl + "Admin/GutterOrder/OrderDetail?orderId=" + order.Id.ToString());
             mailBody = mailBody.Replace("%createddate%", _dateTimeHelper.ConvertToUserTime(order.CreatedOnUtc, DateTimeKind.Utc).ToString());
             mailBody = mailBody.Replace("%completiondate%", "");
             mailBody = mailBody.Replace("%ordertotal%", string.Format("{0:C}", order.OrderTotal));
@@ -215,7 +218,7 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
 
 
-            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, _siteSetting.AdminEmail, "", _siteSetting.BCCEmail, mailBody, "NEW Order #: " + order.Id.ToString());
+            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, _siteSetting.AdminEmail, "info@ericsguttercleaning.com", _siteSetting.BCCEmail, mailBody, "NEW Order #: " + order.Id.ToString());
 
             return 1;
         }
@@ -260,7 +263,7 @@ namespace EGSW.Services
             mailBody = mailBody.Replace("%siteurl%", _siteSetting.SiteUrl);
 
 
-            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, AgentDetail.Email, "", _siteSetting.BCCEmail, mailBody, "NEW Order #: " + order.Id.ToString());
+            EmailAccess.SendMail(_siteSetting.SenderEmail, _siteSetting.SenderName, AgentDetail.Email, "info@ericsguttercleaning.com", _siteSetting.BCCEmail, mailBody, "NEW Order #: " + order.Id.ToString());
 
             return 1;
         }
