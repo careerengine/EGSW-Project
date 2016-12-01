@@ -64,3 +64,25 @@ C:\Users\Owner\Documents\GitHub\EGSW-Project\EGSW.Services\bin\Release\EntityFra
 C:\Users\Owner\Documents\GitHub\EGSW-Project\EGSW.Services\obj\Release\EGSW.Services.csprojResolveAssemblyReference.cache
 C:\Users\Owner\Documents\GitHub\EGSW-Project\EGSW.Services\obj\Release\EGSW.Services.dll
 C:\Users\Owner\Documents\GitHub\EGSW-Project\EGSW.Services\obj\Release\EGSW.Services.pdb
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\EGSW.Services.dll.config
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\EGSW.Services.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\EGSW.Services.pdb
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\EGSW.Data.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\Newtonsoft.Json.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\PagedList.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\PagedList.Mvc.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\PayPalCoreSDK.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\PayPalMerchantSDK.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\PerlRegex.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\System.Web.Mvc.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\UserAgentStringLibrary.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\EntityFramework.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\EGSW.Data.pdb
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\Newtonsoft.Json.xml
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\PagedList.xml
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\PagedList.Mvc.xml
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\System.Web.Mvc.xml
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\bin\Release\EntityFramework.xml
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\obj\Release\EGSW.Services.csprojResolveAssemblyReference.cache
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\obj\Release\EGSW.Services.dll
+C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Services\obj\Release\EGSW.Services.pdb
