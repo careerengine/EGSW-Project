@@ -274,7 +274,7 @@ namespace EGSW.Web.Areas.Admin.Controllers
             {               
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
-
+                entity.Email = model.Email;
 
                 if (!String.IsNullOrWhiteSpace(model.Password))
                 {

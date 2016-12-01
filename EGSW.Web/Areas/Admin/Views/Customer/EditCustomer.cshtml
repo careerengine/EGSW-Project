@@ -12,6 +12,16 @@
 
 @using (Html.BeginForm())
 {
+    <script type="text/javascript">
+        function validation() {
+            var a = confirm("Changing email will change your username. Are you sure you want to update the changes?");
+            if (a == false) {
+                return false;
+            }
+        }
+    </script>
+    
+    
     <div class="col-md-6">
         <div class="form-horizontal">
             <h4>Edit @ViewBag.DisplayText</h4>
@@ -21,7 +31,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-3 col-md-9">
-                    <input type="submit" value="Update" class="btn btn-default" />
+                    <input type="submit" value="Update" class="btn btn-default" onclick="return validation()" />
                 </div>
             </div>
         </div>
