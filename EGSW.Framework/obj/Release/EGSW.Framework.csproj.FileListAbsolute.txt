@@ -61,23 +61,3 @@ C:\Users\Owner\Documents\GitHub\EGSW-Project\EGSW.Framework\bin\Release\PagedLis
 C:\Users\Owner\Documents\GitHub\EGSW-Project\EGSW.Framework\obj\Release\EGSW.Framework.csprojResolveAssemblyReference.cache
 C:\Users\Owner\Documents\GitHub\EGSW-Project\EGSW.Framework\obj\Release\EGSW.Framework.dll
 C:\Users\Owner\Documents\GitHub\EGSW-Project\EGSW.Framework\obj\Release\EGSW.Framework.pdb
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\EGSW.Framework.dll.config
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\EGSW.Framework.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\EGSW.Framework.pdb
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\EGSW.Data.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\EGSW.Services.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\System.Web.Mvc.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\EntityFramework.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\PagedList.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\PayPalMerchantSDK.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\UserAgentStringLibrary.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\PerlRegex.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\EGSW.Data.pdb
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\EGSW.Services.pdb
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\Recaptcha.pdb
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\System.Web.Mvc.xml
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\EntityFramework.xml
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\bin\Release\PagedList.xml
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\obj\Release\EGSW.Framework.csprojResolveAssemblyReference.cache
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\obj\Release\EGSW.Framework.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Framework\obj\Release\EGSW.Framework.pdb

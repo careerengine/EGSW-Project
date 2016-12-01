@@ -127,8 +127,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="bin\Debug\EGSW.Data.dll.config" />
-    <None Include="bin\Release\EGSW.Data.dll.config" />
     <None Include="EGSWDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EGSWDBModel.edmx</DependentUpon>
@@ -146,24 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\EGSW.Data.dll" />
-    <Content Include="bin\Debug\EGSW.Data.pdb" />
-    <Content Include="bin\Debug\EntityFramework.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\Debug\EntityFramework.xml" />
-    <Content Include="bin\Debug\System.Web.Mvc.dll" />
-    <Content Include="bin\Debug\System.Web.Mvc.xml" />
-    <Content Include="bin\Release\EGSW.Data.dll" />
-    <Content Include="bin\Release\EGSW.Data.pdb" />
-    <Content Include="bin\Release\EntityFramework.dll" />
-    <Content Include="bin\Release\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\Release\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\Release\EntityFramework.xml" />
-    <Content Include="bin\Release\System.Web.Mvc.dll" />
-    <Content Include="bin\Release\System.Web.Mvc.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

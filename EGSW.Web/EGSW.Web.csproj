@@ -328,8 +328,6 @@
     <Content Include="Areas\Admin\Scripts\respond.min.js" />
     <Content Include="Areas\Admin\Scripts\URI.js" />
     <None Include="Areas\Admin\Scripts\_references.js" />
-    <Content Include="bin\EGSW.Web.dll" />
-    <Content Include="bin\EGSW.Web.pdb" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />

@@ -22,15 +22,3 @@ F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\bin\Release\System.Web.M
 F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.csprojResolveAssemblyReference.cache
 F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.dll
 F:\MyProject\CSGProject\EGSW\Project\EGSW.Web\EGSW.Data\obj\Release\EGSW.Data.pdb
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\bin\Release\EGSW.Data.dll.config
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\bin\Release\EGSW.Data.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\bin\Release\EGSW.Data.pdb
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\bin\Release\EntityFramework.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\bin\Release\EntityFramework.SqlServer.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\bin\Release\System.Web.Mvc.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\bin\Release\EntityFramework.xml
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\bin\Release\EntityFramework.SqlServer.xml
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\bin\Release\System.Web.Mvc.xml
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\obj\Release\EGSW.Data.csprojResolveAssemblyReference.cache
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\obj\Release\EGSW.Data.dll
-C:\Users\Arpan\Documents\Visual Studio 2012\EGSW-Project\EGSW.Data\obj\Release\EGSW.Data.pdb
