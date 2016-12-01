@@ -117,9 +117,47 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="bin\Debug\EGSW.Services.dll.config" />
+    <None Include="bin\Release\EGSW.Services.dll.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\EGSW.Data.dll" />
+    <Content Include="bin\Debug\EGSW.Data.pdb" />
+    <Content Include="bin\Debug\EGSW.Services.dll" />
+    <Content Include="bin\Debug\EGSW.Services.pdb" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\PagedList.dll" />
+    <Content Include="bin\Debug\PagedList.Mvc.dll" />
+    <Content Include="bin\Debug\PagedList.Mvc.xml" />
+    <Content Include="bin\Debug\PagedList.xml" />
+    <Content Include="bin\Debug\PayPalCoreSDK.dll" />
+    <Content Include="bin\Debug\PayPalMerchantSDK.dll" />
+    <Content Include="bin\Debug\PerlRegex.dll" />
+    <Content Include="bin\Debug\System.Web.Mvc.dll" />
+    <Content Include="bin\Debug\System.Web.Mvc.xml" />
+    <Content Include="bin\Debug\UserAgentStringLibrary.dll" />
+    <Content Include="bin\Release\EGSW.Data.dll" />
+    <Content Include="bin\Release\EGSW.Data.pdb" />
+    <Content Include="bin\Release\EGSW.Services.dll" />
+    <Content Include="bin\Release\EGSW.Services.pdb" />
+    <Content Include="bin\Release\EntityFramework.dll" />
+    <Content Include="bin\Release\EntityFramework.xml" />
+    <Content Include="bin\Release\Newtonsoft.Json.dll" />
+    <Content Include="bin\Release\Newtonsoft.Json.xml" />
+    <Content Include="bin\Release\PagedList.dll" />
+    <Content Include="bin\Release\PagedList.Mvc.dll" />
+    <Content Include="bin\Release\PagedList.Mvc.xml" />
+    <Content Include="bin\Release\PagedList.xml" />
+    <Content Include="bin\Release\PayPalCoreSDK.dll" />
+    <Content Include="bin\Release\PayPalMerchantSDK.dll" />
+    <Content Include="bin\Release\PerlRegex.dll" />
+    <Content Include="bin\Release\System.Web.Mvc.dll" />
+    <Content Include="bin\Release\System.Web.Mvc.xml" />
+    <Content Include="bin\Release\UserAgentStringLibrary.dll" />
     <Content Include="Content\PagedList.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
